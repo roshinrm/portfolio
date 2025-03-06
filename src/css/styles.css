@@ -49,6 +49,9 @@ nav {
     margin: 0;
 }
 
+.hero-content p {
+    color: rgba(0, 0, 0, 0.664);
+}
 .hello{
     font-weight: 500;
 }
@@ -68,4 +71,35 @@ nav {
     padding: 5px 20px;
     border-radius: 5px;
     text-decoration: none;
+}
+
+#skills{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-skills{
+    display: flex;
+    flex-direction: column;
+}
+.skill-boxes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.skill-box{
+    width: 200px;
+    height: 100%;
+    border: 2px solid black;
+    margin: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-content: center;
 }

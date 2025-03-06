@@ -1,44 +1,1156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Roshin</title>
-</head>
-<body>
-    <nav>
-        <div class="logo">
-            <h1>R</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roshin R M</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0F172A",
+              secondary: "#6366F1",
+              accent: {
+                1: "#EC4899",
+                2: "#8B5CF6",
+                3: "#10B981",
+                4: "#F59E0B",
+              },
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      .dark {
+      color-scheme: dark;
+      }
+      .dark body {
+      background-color: #111827;
+      color: #f3f4f6;
+      }
+      .dark .bg-white {
+      background-color: #1f2937;
+      }
+      .dark .border-gray-100 {
+      border-color: #374151;
+      }
+      .dark .bg-gray-50 {
+      background-color: #111827;
+      }
+      .dark .bg-blue-50 {
+      background-color: rgba(59, 130, 246, 0.1);
+      }
+      .dark .bg-blue-100 {
+      background-color: rgba(59, 130, 246, 0.2);
+      }
+      .dark .text-blue-800 {
+      color: #93c5fd;
+      }
+      .dark .text-primary {
+      color: #ffffff;
+      }
+      .dark .text-secondary {
+      color: #60a5fa;
+      }
+      .dark .text-gray-600 {
+      color: #e5e7eb;
+      }
+      .dark .text-primary {
+      color: #ffffff;
+      }
+      .dark .border-gray-100 {
+      border-color: #374151;
+      }
+      .dark .bg-gray-50 {
+      background-color: #1f2937;
+      }
+      .dark .bg-blue-50 {
+      background-color: rgba(59, 130, 246, 0.1);
+      }
+      .dark .bg-blue-100 {
+      background-color: rgba(59, 130, 246, 0.2);
+      }
+      .dark .shadow-sm {
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+      }
+      .dark .bg-gradient-to-br {
+      background-image: linear-gradient(to bottom right, #111827, #1f2937);
+      }
+      .dark .text-blue-800 {
+      color: #93c5fd;
+      }
+      html { scroll-behavior: smooth; }
+      .timeline-line::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background-color: #E5E7EB;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+      }
+      @keyframes fadeInUp {
+      from {
+      opacity: 0;
+      transform: translateY(20px);
+      }
+      to {
+      opacity: 1;
+      transform: translateY(0);
+      }
+      }
+      @keyframes fadeInLeft {
+      from {
+      opacity: 0;
+      transform: translateX(-20px);
+      }
+      to {
+      opacity: 1;
+      transform: translateX(0);
+      }
+      }
+      @keyframes fadeInRight {
+      from {
+      opacity: 0;
+      transform: translateX(20px);
+      }
+      to {
+      opacity: 1;
+      transform: translateX(0);
+      }
+      }
+      @keyframes scaleIn {
+      from {
+      opacity: 0;
+      transform: scale(0.9);
+      }
+      to {
+      opacity: 1;
+      transform: scale(1);
+      }
+      }
+      .animate-fadeInUp {
+      animation: fadeInUp 0.6s ease-out forwards;
+      }
+      .animate-fadeInLeft {
+      animation: fadeInLeft 0.6s ease-out forwards;
+      }
+      .animate-fadeInRight {
+      animation: fadeInRight 0.6s ease-out forwards;
+      }
+      .animate-scaleIn {
+      animation: scaleIn 0.6s ease-out forwards;
+      }
+      .animate-delay-100 {
+      animation-delay: 100ms;
+      }
+      .animate-delay-200 {
+      animation-delay: 200ms;
+      }
+      .animate-delay-300 {
+      animation-delay: 300ms;
+      }
+      .animate-delay-400 {
+      animation-delay: 400ms;
+      }
+    </style>
+  </head>
+  <body class="font-['Inter'] transition-colors duration-200">
+    <nav
+      class="fixed w-full bg-white/80 dark:bg-primary/80 backdrop-blur-md z-50 border-b border-gray-100 dark:border-gray-800"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <span
+              class="text-2xl font-['Pacifico'] text-primary dark:text-white"
+              >Roshin</span
+            >
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#home"
+              class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white"
+              >About</a
+            >
+            <a
+              href="#experience"
+              class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white"
+              >Experience</a
+            >
+            <a
+              href="#projects"
+              class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white"
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white"
+              >Contact</a
+            >
+            <a
+              href="./src/img/odooresume.pdf"
+              target="_blank"
+              class="bg-primary text-white dark:bg-white dark:text-primary px-6 py-2 !rounded-button hover:bg-opacity-90 transition-all duration-200 whitespace-nowrap inline-flex items-center"
+            >
+              <i class="ri-download-line mr-2"></i>
+              Download CV
+            </a>
+          </div>
+          <button
+            class="md:hidden text-primary dark:text-white"
+            onclick="toggleMobileMenu()"
+          >
+            <i class="ri-menu-line text-2xl"></i>
+          </button>
         </div>
-        <ul id="nav-menu">
-            <li>About me</li>
-            <li>Skills</li>
-            <li>Works</li>
-            <a href="/src/img/odooresume.pdf" target="_blank" id="resume-download">Download Resume</a>
-        </ul>
+      </div>
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-white dark:bg-primary w-full border-t border-gray-100 dark:border-gray-800"
+      >
+        <div class="px-4 py-2 space-y-2">
+          <a
+            href="#home"
+            class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white"
+            >About</a
+          >
+          <a
+            href="#experience"
+            class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white"
+            >Experience</a
+          >
+          <a
+            href="#projects"
+            class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white"
+            >Projects</a
+          >
+          <a
+            href="#contact"
+            class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white"
+            >Contact</a
+          >
+          <a
+              href="./src/img/odooresume.pdf"
+              target="_blank"
+              class="bg-primary text-white dark:bg-white dark:text-primary px-6 py-2 !rounded-button hover:bg-opacity-90 transition-all duration-200 whitespace-nowrap inline-flex items-center"
+            >
+              <i class="ri-download-line mr-2"></i>
+              Download CV
+            </a>
+        </div>
+      </div>
     </nav>
-    <section id="hero">
-        <div class="hero">
-            <div class="hero-content">
-                <h1><span class="hello">Hello,</span>I’m Roshin RM</h1>
-                <h1>Odoo <span class="hello">Developer</span></h1>
-                <h1><span class="Hello">Based in</span> India.</h1>
-                <p>Passionate about technology, I specialize in Odoo development, 
-                    crafting seamless business solutions through custom module development, 
-                    integration, and optimization. With a strong foundation in web development and design, 
-                    I focus on building innovative and efficient ERP solutions. 
-                    Continuously expanding my expertise, I aim to contribute to impactful projects that enhance business processes and drive digital transformation.</p>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/roshin-r-m-8b3228165/" target="_blank"><img src="src/img/linkedin.svg" alt="linkedin"></a>
-                    <a href="https://github.com/roshinrm" target="_blank"><img src="src/img/github.svg" alt="github"></a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=roshin011235@gmail.com&su=Your%20Subject&body=Your%20message%20here" target="_blank"><img src="src/img/gmail.svg" alt="gmail"></a>
-                </div>
-            </div>
-            <div class="hero-img">
-                <img src="src/img/Group 1000015839.svg" alt="hero-img">
-            </div>
+    <section id="home" class="pt-32 pb-20 relative overflow-hidden">
+      <div class="absolute inset-0">
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-blue-50/90 via-white/70 to-white"
+        ></div>
+        <div
+          class="absolute inset-0 bg-[url('https://public.readdy.ai/ai/img_res/70b7b4cae15dbdc369829b1815535428.jpg')] bg-cover bg-center opacity-90"
+        ></div>
+        <div class="absolute inset-0">
+          <svg
+            class="w-full h-full opacity-[0.02]"
+            viewBox="0 0 1920 1080"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <pattern
+              id="grid"
+              width="40"
+              height="40"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 40 0 L 0 0 0 40"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+              />
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
         </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+          <div class="space-y-8">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full animate-fadeInDown"
+            >
+              <div
+                class="w-2 h-2 bg-secondary rounded-full animate-pulse"
+              ></div>
+              <span class="text-secondary font-medium"
+                >Available for Projects</span
+              >
+            </div>
+            <div class="space-y-6">
+              <h1
+                class="text-6xl font-bold text-primary leading-tight animate-fadeInLeft"
+              >
+                Hi, I'm Roshin R M
+              </h1>
+              <p
+                class="text-xl text-gray-600 leading-relaxed animate-fadeInLeft animate-delay-200"
+              >
+                A passionate Odoo Developer with 4 years of experience in
+                building enterprise solutions and API integrations.
+              </p>
+            </div>
+            <div class="flex gap-4 animate-fadeInUp animate-delay-400">
+              <button
+                class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-opacity-90 transition-all duration-200 whitespace-nowrap flex items-center gap-2"
+              >
+                Get in Touch
+                <i class="ri-arrow-right-line"></i>
+              </button>
+              <button
+                class="bg-white border-2 border-primary text-primary px-8 py-3 !rounded-button hover:bg-primary hover:text-white transition-all duration-200 whitespace-nowrap"
+              >
+                View Projects
+              </button>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute -top-20 -right-20 w-[600px] h-[600px]">
+              <img
+                src="https://public.readdy.ai/ai/img_res/abdf71725f9ff1e3fbb28c59b258bbe9.jpg"
+                alt="Abstract shapes"
+                class="w-full h-full object-contain opacity-10"
+              />
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+              <div
+                class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 animate-scaleIn animate-delay-100"
+              >
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-accent-2/20 to-accent-1/20 rounded-xl flex items-center justify-center mb-4"
+                >
+                  <i class="ri-code-s-slash-line text-accent-2 text-3xl"></i>
+                </div>
+                <h4 class="font-medium mb-2">Custom Development</h4>
+                <p class="text-sm text-gray-600">
+                  Specialized in building tailored Odoo modules
+                </p>
+              </div>
+              <div
+                class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-accent-3/20 to-accent-2/20 rounded-xl flex items-center justify-center mb-4"
+                >
+                  <i class="ri-api-line text-accent-3 text-3xl"></i>
+                </div>
+                <h4 class="font-medium mb-2">API Integration</h4>
+                <p class="text-sm text-gray-600">
+                  Seamless third-party system integration
+                </p>
+              </div>
+              <div
+                class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-accent-4/20 to-accent-3/20 rounded-xl flex items-center justify-center mb-4"
+                >
+                  <i class="ri-database-2-line text-accent-4 text-3xl"></i>
+                </div>
+                <h4 class="font-medium mb-2">Database Design</h4>
+                <p class="text-sm text-gray-600">
+                  Optimized data structure solutions
+                </p>
+              </div>
+              <div
+                class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-accent-1/20 to-accent-4/20 rounded-xl flex items-center justify-center mb-4"
+                >
+                  <i class="ri-settings-line text-accent-1 text-3xl"></i>
+                </div>
+                <h4 class="font-medium mb-2">System Architecture</h4>
+                <p class="text-sm text-gray-600">
+                  Scalable enterprise solutions
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-</body>
+    <section id="about" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-primary text-center mb-16">
+          About Me
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Professional Summary</h3>
+            <p class="text-gray-600 mb-6">
+              Experienced Odoo Developer with a proven track record in
+              developing and implementing complex ERP solutions. Specialized in
+              API integrations, custom module development, and leading technical
+              teams for enterprise-level projects.
+            </p>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">Odoo Development</span>
+                  <span>95%</span>
+                </div>
+                <div class="h-2 bg-gray-200 rounded-full">
+                  <div
+                    class="h-2 bg-secondary rounded-full"
+                    style="width: 95%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">Python</span>
+                  <span>90%</span>
+                </div>
+                <div class="h-2 bg-gray-200 rounded-full">
+                  <div
+                    class="h-2 bg-secondary rounded-full"
+                    style="width: 90%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium">API Development</span>
+                  <span>85%</span>
+                </div>
+                <div class="h-2 bg-gray-200 rounded-full">
+                  <div
+                    class="h-2 bg-secondary rounded-full"
+                    style="width: 85%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Technical Expertise</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <div
+                class="p-4 bg-gradient-to-br from-accent-2/5 to-accent-1/5 rounded-lg"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-accent-2/20 to-accent-1/20 rounded-lg flex items-center justify-center mb-3"
+                >
+                  <i class="ri-code-s-slash-line text-accent-2 text-2xl"></i>
+                </div>
+                <h4 class="font-medium mb-2">Backend Development</h4>
+                <p class="text-sm text-gray-600">Python, PostgreSQL, XML</p>
+              </div>
+              <div
+                class="p-4 bg-gradient-to-br from-accent-3/5 to-accent-2/5 rounded-lg"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-accent-3/20 to-accent-2/20 rounded-lg flex items-center justify-center mb-3"
+                >
+                  <i class="ri-api-line text-accent-3 text-2xl"></i>
+                </div>
+                <h4 class="font-medium mb-2">API Integration</h4>
+                <p class="text-sm text-gray-600">REST APIs, JSON, OAuth</p>
+              </div>
+              <div
+                class="p-4 bg-gradient-to-br from-accent-4/5 to-accent-3/5 rounded-lg"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-accent-4/20 to-accent-3/20 rounded-lg flex items-center justify-center mb-3"
+                >
+                  <i class="ri-database-2-line text-accent-4 text-2xl"></i>
+                </div>
+                <h4 class="font-medium mb-2">Database Design</h4>
+                <p class="text-sm text-gray-600">Data Modeling, Optimization</p>
+              </div>
+              <div
+                class="p-4 bg-gradient-to-br from-accent-1/5 to-accent-4/5 rounded-lg"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-accent-1/20 to-accent-4/20 rounded-lg flex items-center justify-center mb-3"
+                >
+                  <i class="ri-team-line text-accent-1 text-2xl"></i>
+                </div>
+                <h4 class="font-medium mb-2">Team Leadership</h4>
+                <p class="text-sm text-gray-600">
+                  Project Management, Mentoring
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="experience"
+      class="py-20 bg-gradient-to-br from-gray-50 to-white"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-primary text-center mb-16">
+          Professional Experience
+        </h2>
+        <div class="relative">
+          <div
+            class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-100 to-gray-100 rounded-full"
+          ></div>
+          <div class="space-y-16">
+            <div class="relative">
+              <div
+                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-secondary rounded-full border-4 border-white"
+              ></div>
+              <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+                <div class="md:text-right md:pr-12">
+                  <span
+                    class="inline-block bg-blue-100 text-secondary px-4 py-1 rounded-full text-sm font-medium mb-2"
+                    >March 2022 - Present</span
+                  >
+                  <h3 class="text-xl font-semibold mb-2">Developer Analyst</h3>
+                  <p class="text-gray-600">
+                    Leading development teams and implementing enterprise
+                    solutions
+                  </p>
+                </div>
+                <div
+                  class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 md:ml-12"
+                >
+                  <div class="space-y-4">
+                    <div class="flex items-start space-x-4">
+                      <div
+                        class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"
+                      >
+                        <i class="ri-hospital-line text-secondary text-xl"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-medium">
+                          HIMS (Hospital Management System)
+                        </h4>
+                        <p class="text-gray-600 text-sm">
+                          Led the development of APIs connecting 6 mobile
+                          applications, implemented custom modules for doctor
+                          workbench, pharmacy, and emergency services.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                      <div
+                        class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"
+                      >
+                        <i class="ri-bank-line text-secondary text-xl"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-medium">Pension Board Portal</h4>
+                        <p class="text-gray-600 text-sm">
+                          Currently leading the development of a pension
+                          management system for cooperative societies.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                      <div
+                        class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"
+                      >
+                        <i class="ri-store-2-line text-secondary text-xl"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-medium">Consumerfed ERP</h4>
+                        <p class="text-gray-600 text-sm">
+                          Developing comprehensive ERP solution for Kerala
+                          government project, managing multiple branch
+                          operations.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="relative">
+              <div
+                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-secondary rounded-full border-4 border-white"
+              ></div>
+              <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+                <div class="md:text-right md:pr-12">
+                  <span
+                    class="inline-block bg-blue-100 text-secondary px-4 py-1 rounded-full text-sm font-medium mb-2"
+                    >2021 - 2022</span
+                  >
+                  <h3 class="text-xl font-semibold mb-2">Junior Developer</h3>
+                  <p class="text-gray-600">Febno Technologies</p>
+                </div>
+                <div
+                  class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 md:ml-12"
+                >
+                  <div class="space-y-4">
+                    <div class="flex items-start space-x-4">
+                      <div
+                        class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"
+                      >
+                        <i
+                          class="ri-building-2-line text-secondary text-xl"
+                        ></i>
+                      </div>
+                      <div>
+                        <h4 class="font-medium">Aqary CRM</h4>
+                        <p class="text-gray-600 text-sm">
+                          Developed APIs for real estate property listing and
+                          integration with external applications.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                      <div
+                        class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"
+                      >
+                        <i class="ri-truck-line text-secondary text-xl"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-medium">UAE Courier Company</h4>
+                        <p class="text-gray-600 text-sm">
+                          Implemented courier management system with tracking
+                          and delivery management features.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="projects" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-primary text-center mb-16">
+          Featured Projects
+        </h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div
+            class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 group cursor-pointer animate-fadeInUp animate-delay-100"
+            onclick="showProjectDetails('hims')"
+          >
+            <img
+              src="https://public.readdy.ai/ai/img_res/e1d46156bde99bb647d6a7b433e68f15.jpg"
+              alt="HIMS"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">HIMS</h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Comprehensive hospital management system with mobile app
+                integration and custom modules.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-gradient-to-r from-accent-2/10 to-accent-1/10 text-accent-2 rounded-full text-sm"
+                  >Odoo</span
+                >
+                <span
+                  class="px-3 py-1 bg-gradient-to-r from-accent-3/10 to-accent-2/10 text-accent-3 rounded-full text-sm"
+                  >Python</span
+                >
+                <span
+                  class="px-3 py-1 bg-gradient-to-r from-accent-4/10 to-accent-3/10 text-accent-4 rounded-full text-sm"
+                  >API</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 group cursor-pointer"
+            onclick="showProjectDetails('pension')"
+          >
+            <img
+              src="https://public.readdy.ai/ai/img_res/62ba13795f1750a0d8d3807c7639c84c.jpg"
+              alt="Pension Board"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Pension Board Portal</h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Pension management system for cooperative societies with
+                automated benefit calculations.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >Odoo</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >PostgreSQL</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >Python</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 group cursor-pointer"
+            onclick="showProjectDetails('aqary')"
+          >
+            <img
+              src="https://public.readdy.ai/ai/img_res/ac39255f6a237f1924b29ef2c3025962.jpg"
+              alt="Aqary CRM"
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Aqary CRM</h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Real estate management system with external API integration for
+                property listings.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >Odoo</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >REST API</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >XML</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-primary text-center mb-16">
+          Get in Touch
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+          <div>
+            <div class="bg-white p-6 rounded-xl shadow-sm animate-fadeInLeft">
+              <div class="space-y-6">
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 bg-gradient-to-br from-accent-2/20 to-accent-1/20 rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <i class="ri-chat-smile-line text-accent-2 text-2xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-medium">Let's Talk</h3>
+                    <p class="text-gray-600">
+                      I'm always open for new opportunities and interesting
+                      projects.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 bg-gradient-to-br from-accent-3/20 to-accent-2/20 rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <i class="ri-time-line text-accent-3 text-2xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-medium">Response Time</h3>
+                    <p class="text-gray-600">Usually within 24 hours</p>
+                  </div>
+                </div>
+                <a
+                  href="mailto:roshin011235@gmail.com"
+                  class="inline-block w-full bg-primary text-white dark:bg-white dark:text-primary px-6 py-3 !rounded-button hover:bg-opacity-90 dark:hover:bg-opacity-90 transition-all duration-200 text-center"
+                >
+                  <i class="ri-mail-send-line mr-2"></i>Send Email
+                </a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="bg-white p-6 rounded-xl shadow-sm animate-fadeInLeft">
+              <div class="space-y-6">
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 bg-gradient-to-br from-accent-4/20 to-accent-3/20 rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <i class="ri-mail-line text-accent-4 text-2xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-medium">Email</h3>
+                    <p class="text-gray-600">roshin011235@gmail.com</p>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 bg-gradient-to-br from-accent-1/20 to-accent-4/20 rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <i class="ri-map-pin-line text-accent-1 text-2xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-medium">Location</h3>
+                    <p class="text-gray-600">Kozhikode, Kerala, India</p>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 bg-gradient-to-br from-accent-2/20 to-accent-1/20 rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <i class="ri-linkedin-line text-accent-2 text-2xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-medium">LinkedIn</h3>
+                    <p class="text-gray-600">linkedin.com/in/james-anderson</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-primary text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-['Pacifico'] mb-4">Roshin</h3>
+            <p class="text-gray-300">
+              Experienced Odoo Developer specializing in enterprise solutions
+              and API integrations.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#home" class="text-gray-300 hover:text-white">Home</a>
+              </li>
+              <li>
+                <a href="#about" class="text-gray-300 hover:text-white"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a href="#experience" class="text-gray-300 hover:text-white"
+                  >Experience</a
+                >
+              </li>
+              <li>
+                <a href="#projects" class="text-gray-300 hover:text-white"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="text-gray-300 hover:text-white"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Connect</h3>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20"
+              >
+                <i class="ri-github-line text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20"
+              >
+                <i class="ri-linkedin-line text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20"
+              >
+                <i class="ri-twitter-line text-xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-white/10 mt-12 pt-8 text-center">
+          <p class="text-gray-300">
+            &copy; 2025 Portfolio. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <button
+      id="darkModeToggle"
+      class="fixed bottom-24 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
+    >
+      <i class="ri-sun-line text-xl dark:ri-moon-line"></i>
+    </button>
+    <button
+      id="backToTop"
+      class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 transition-opacity duration-300"
+    >
+      <i class="ri-arrow-up-line text-xl"></i>
+    </button>
+    <div
+      id="projectModal"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50"
+    >
+      <div
+        class="bg-white rounded-xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto animate-scaleIn"
+      >
+        <div class="p-6">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-primary" id="modalTitle"></h2>
+            <button
+              onclick="closeProjectModal()"
+              class="text-gray-500 hover:text-gray-700"
+            >
+              <i class="ri-close-line text-2xl"></i>
+            </button>
+          </div>
+          <div id="modalContent"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      const darkModeIcon = darkModeToggle.querySelector("i");
+      const mobileMenu = document.getElementById("mobileMenu");
+      function toggleMobileMenu() {
+        if (mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.remove("hidden");
+        } else {
+          mobileMenu.classList.add("hidden");
+        }
+      }
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll("#mobileMenu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+      function toggleDarkMode() {
+        if (document.documentElement.classList.contains("dark")) {
+          document.documentElement.classList.remove("dark");
+          darkModeIcon.className = "ri-sun-line text-xl";
+          localStorage.setItem("darkMode", "light");
+        } else {
+          document.documentElement.classList.add("dark");
+          darkModeIcon.className = "ri-moon-line text-xl";
+          localStorage.setItem("darkMode", "dark");
+        }
+      }
+      darkModeToggle.addEventListener("click", toggleDarkMode);
+      if (localStorage.getItem("darkMode") === "dark") {
+        document.documentElement.classList.add("dark");
+        darkModeIcon.className = "ri-moon-line text-xl";
+      } else {
+        document.documentElement.classList.remove("dark");
+        darkModeIcon.className = "ri-sun-line text-xl";
+      }
+      function animateOnScroll() {
+        const elements = document.querySelectorAll(".animate-on-scroll");
+        elements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementBottom = element.getBoundingClientRect().bottom;
+          const isVisible = elementTop < window.innerHeight && elementBottom >= 0;
+          if (isVisible) {
+            element.classList.add("animate-fadeInUp");
+          }
+        });
+      }
+      window.addEventListener("scroll", animateOnScroll);
+      window.addEventListener("load", animateOnScroll);
+      const backToTop = document.getElementById("backToTop");
+      const projectModal = document.getElementById("projectModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalContent = document.getElementById("modalContent");
+      const projectDetails = {
+        hims: {
+          title: "Hospital Information Management System (HIMS)",
+          content: `
+      <div class="space-y-6">
+      <img src="https://public.readdy.ai/ai/img_res/8865324dfc5899404e824f1fbd806949.jpg"
+      alt="HIMS Dashboard"
+      class="w-full rounded-lg">
+      <div class="space-y-4">
+      <h3 class="text-xl font-semibold">Project Overview</h3>
+      <p class="text-gray-600">A comprehensive hospital management system designed to streamline healthcare operations and improve patient care delivery.</p>
+      <h3 class="text-xl font-semibold">Key Features</h3>
+      <ul class="list-disc list-inside space-y-2 text-gray-600">
+      <li>Patient Management & Electronic Health Records</li>
+      <li>Appointment Scheduling & Doctor Workbench</li>
+      <li>Pharmacy Management & Inventory Control</li>
+      <li>Laboratory Information System</li>
+      <li>Mobile App Integration for Doctors & Patients</li>
+      <li>Billing & Insurance Management</li>
+      </ul>
+      <h3 class="text-xl font-semibold">Technical Implementation</h3>
+      <ul class="list-disc list-inside space-y-2 text-gray-600">
+      <li>Custom Odoo modules for healthcare management</li>
+      <li>RESTful APIs for mobile application integration</li>
+      <li>Real-time notifications system</li>
+      <li>Integration with medical devices and laboratory equipment</li>
+      </ul>
+      <h3 class="text-xl font-semibold">Results & Impact</h3>
+      <ul class="list-disc list-inside space-y-2 text-gray-600">
+      <li>50% reduction in patient wait times</li>
+      <li>30% improvement in resource utilization</li>
+      <li>Seamless coordination between departments</li>
+      <li>Enhanced patient experience through mobile app</li>
+      </ul>
+      </div>
+      </div>
+      `,
+        },
+        pension: {
+          title: "Pension Board Portal",
+          content: `
+      <div class="space-y-6">
+      <img src="https://public.readdy.ai/ai/img_res/2caf88729f146d0650d42d57bd57b0a1.jpg"
+      alt="Pension Portal Dashboard"
+      class="w-full rounded-lg">
+      <div class="space-y-4">
+      <h3 class="text-xl font-semibold">Project Overview</h3>
+      <p class="text-gray-600">A comprehensive pension management system for cooperative societies, handling member benefits and financial calculations.</p>
+      <h3 class="text-xl font-semibold">Key Features</h3>
+      <ul class="list-disc list-inside space-y-2 text-gray-600">
+      <li>Member Profile Management</li>
+      <li>Automated Benefit Calculations</li>
+      <li>Investment Portfolio Tracking</li>
+      <li>Claims Processing System</li>
+      <li>Regulatory Compliance Management</li>
+      <li>Financial Reports Generation</li>
+      </ul>
+      <h3 class="text-xl font-semibold">Technical Implementation</h3>
+      <ul class="list-disc list-inside space-y-2 text-gray-600">
+      <li>Custom financial calculation modules</li>
+      <li>Integration with banking systems</li>
+      <li>Automated document processing</li>
+      <li>Advanced reporting engine</li>
+      </ul>
+      <h3 class="text-xl font-semibold">Results & Impact</h3>
+      <ul class="list-disc list-inside space-y-2 text-gray-600">
+      <li>Processing time reduced by 60%</li>
+      <li>100% accuracy in benefit calculations</li>
+      <li>Improved member satisfaction</li>
+      <li>Enhanced regulatory compliance</li>
+      </ul>
+      </div>
+      </div>
+      `,
+        },
+        aqary: {
+          title: "Aqary Real Estate CRM",
+          content: `
+      <div class="space-y-6">
+      <img src="https://public.readdy.ai/ai/img_res/6f32868ad7ace71664e23fe0feebc22e.jpg"
+      alt="Aqary CRM Dashboard"
+      class="w-full rounded-lg">
+      <div class="space-y-4">
+      <h3 class="text-xl font-semibold">Project Overview</h3>
+      <p class="text-gray-600">A comprehensive real estate management system with external API integration for property listings and agent management.</p>
+      <h3 class="text-xl font-semibold">Key Features</h3>
+      <ul class="list-disc list-inside space-y-2 text-gray-600">
+      <li>Property Listing Management</li>
+      <li>Agent Performance Tracking</li>
+      <li>Lead Management System</li>
+      <li>Document Management</li>
+      <li>Commission Calculation</li>
+      <li>Marketing Campaign Management</li>
+      </ul>
+      <h3 class="text-xl font-semibold">Technical Implementation</h3>
+      <ul class="list-disc list-inside space-y-2 text-gray-600">
+      <li>Integration with multiple property portals</li>
+      <li>Custom reporting engine</li>
+      <li>Automated lead assignment</li>
+      <li>Document workflow automation</li>
+      </ul>
+      <h3 class="text-xl font-semibold">Results & Impact</h3>
+      <ul class="list-disc list-inside space-y-2 text-gray-600">
+      <li>40% increase in lead conversion</li>
+      <li>25% improvement in agent productivity</li>
+      <li>Streamlined property listing process</li>
+      <li>Enhanced customer engagement</li>
+      </ul>
+      </div>
+      </div>
+      `,
+        },
+      };
+      function showProjectDetails(project) {
+        modalTitle.textContent = projectDetails[project].title;
+        modalContent.innerHTML = projectDetails[project].content;
+        projectModal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+      }
+      function closeProjectModal() {
+        projectModal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTop.style.opacity = "1";
+        } else {
+          backToTop.style.opacity = "0";
+        }
+      });
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+      window.onclick = function (event) {
+        if (event.target == projectModal) {
+          closeProjectModal();
+        }
+      };
+    </script>
+  </body>
 </html>
