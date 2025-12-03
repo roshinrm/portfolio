@@ -56,6 +56,14 @@
     <style>
       :where([class^="ri-"])::before { content: "\f3c2"; }
       
+      :root {
+        --color-gold: #c9a959;
+        --color-gold-light: #e0c87a;
+        --color-gold-dark: #b8860b;
+        --color-navy: #1a1f2e;
+        --color-cream: #f8f5f0;
+      }
+      
       body {
         font-family: 'Source Sans 3', system-ui, sans-serif;
       }
@@ -90,13 +98,13 @@
         background-color: rgba(201, 169, 89, 0.2);
       }
       .dark .text-blue-800 {
-        color: #c9a959;
+        color: var(--color-gold);
       }
       .dark .text-primary {
         color: #ffffff;
       }
       .dark .text-secondary {
-        color: #c9a959;
+        color: var(--color-gold);
       }
       .dark .text-gray-600 {
         color: #e5e7eb;
@@ -114,7 +122,7 @@
         content: '';
         position: absolute;
         width: 2px;
-        background-color: #c9a959;
+        background-color: var(--color-gold);
         top: 0;
         bottom: 0;
         left: 50%;
@@ -200,7 +208,7 @@
         left: 0;
         width: 0;
         height: 2px;
-        background-color: #c9a959;
+        background-color: var(--color-gold);
         transition: width 0.3s ease;
       }
       .nav-link:hover::after {
@@ -220,7 +228,7 @@
       
       /* Gold gradient text for headings */
       .gold-gradient {
-        background: linear-gradient(135deg, #c9a959 0%, #e0c87a 50%, #b8860b 100%);
+        background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 50%, var(--color-gold-dark) 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -230,7 +238,7 @@
       .section-divider {
         width: 80px;
         height: 3px;
-        background: linear-gradient(90deg, #c9a959, #b8860b);
+        background: linear-gradient(90deg, var(--color-gold), var(--color-gold-dark));
         margin: 0 auto 2rem;
       }
     </style>
