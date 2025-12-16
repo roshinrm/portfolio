@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -22,16 +22,27 @@
         theme: {
           extend: {
             colors: {
-              primary: "#111111",
-              accent: "#2563eb",
-              cream: "#F5F0E8",
-              beige: "#E8F4F0",
-              sage: "#8BA888",
-              mint: "#A8D8B9",
+              primary: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#3b82f6',
+                600: '#2563eb',
+                700: '#1d4ed8',
+                800: '#1e40af',
+                900: '#1e3a8a',
+              },
+              navy: '#1a365d',
+              charcoal: '#2d3748',
+              gold: '#d69e2e',
+              profesionalBlue: '#3182ce',
             },
             fontFamily: {
-              serif: ['Crimson Pro', 'Georgia', 'serif'],
+              display: ['Poppins', 'sans-serif'],
               sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            boxShadow: {
+              'card': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)',
+              'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)',
             },
           },
         },
@@ -46,26 +57,26 @@
       }
       
       h1, h2, h3, h4 {
-        font-family: 'Crimson Pro', Georgia, serif;
+        font-family: 'Poppins', sans-serif;
       }
       
       .dark {
         color-scheme: dark;
       }
       .dark body {
-        background-color: #0a0a0a;
-        color: #fafafa;
+        background-color: #1a202c;
+        color: #f7fafc;
       }
       .dark .bg-white {
-        background-color: #111111;
+        background-color: #2d3748;
       }
       .dark .bg-gray-50 {
-        background-color: #0a0a0a;
+        background-color: #1a202c;
       }
       
       html { scroll-behavior: smooth; }
       
-      /* Minimal underline effect for links */
+      /* Professional underline effect for links */
       .nav-link {
         position: relative;
         transition: color 0.2s ease;
@@ -76,8 +87,8 @@
         bottom: -2px;
         left: 0;
         width: 0;
-        height: 1px;
-        background-color: currentColor;
+        height: 2px;
+        background-color: #3182ce;
         transition: width 0.2s ease;
       }
       .nav-link:hover::after {
@@ -90,18 +101,7 @@
       }
       .minimal-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-      }
-      
-      /* Section divider */
-      .section-divider {
-        width: 40px;
-        height: 2px;
-        background: #8BA888;
-        margin: 0 auto 2rem;
-      }
-      .dark .section-divider {
-        background: #A8D8B9;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
       }
 
       /* Line clamp utilities */
@@ -119,59 +119,54 @@
       }
     </style>
   </head>
-  <body class="font-sans bg-white dark:bg-primary text-gray-900 dark:text-gray-100">
+  <body class="font-sans bg-white dark:bg-charcoal text-gray-900 dark:text-gray-100">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 dark:bg-primary/95 backdrop-blur-sm z-50 border-b border-gray-100 dark:border-gray-800">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="flex justify-between h-16">
+    <nav class="fixed w-full bg-white/95 dark:bg-charcoal/95 backdrop-blur-sm z-50 shadow-sm border-b border-gray-100 dark:border-gray-700">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
           <div class="flex items-center">
-            <span class="text-xl font-serif font-semibold text-primary dark:text-white">AI Dev Hub</span>
+            <span class="text-xl font-display font-bold text-gray-900 dark:text-white">AI Dev Hub</span>
           </div>
           <div class="hidden md:flex items-center space-x-8">
-            <a href="#home" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Home</a>
-            <a href="#about" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">About</a>
-            <a href="#portfolio" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Portfolio</a>
-            <a href="#blog" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Blog</a>
-            <a href="#contact" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Contact</a>
-            <button class="rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-4 py-2 text-sm hover:bg-cream dark:hover:bg-gray-800 transition-colors">
-              Login
-            </button>
-            <button class="rounded-full bg-sage text-white px-4 py-2 text-sm hover:bg-sage/90 transition-colors">
-              Sign in
-            </button>
+            <a href="#home" class="nav-link text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white font-medium">Home</a>
+            <a href="#about" class="nav-link text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white font-medium">About</a>
+            <a href="#portfolio" class="nav-link text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white font-medium">Portfolio</a>
+            <a href="#blog" class="nav-link text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white font-medium">Blog</a>
+            <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white font-medium">Contact</a>
+            <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">Subscribe</a>
           </div>
-          <button class="md:hidden text-primary dark:text-white" id="mobileMenuToggle">
+          <button class="md:hidden text-gray-900 dark:text-white" id="mobileMenuToggle">
             <i class="ri-menu-line text-xl"></i>
           </button>
         </div>
       </div>
-      <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-primary border-t border-gray-100 dark:border-gray-800">
+      <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-charcoal border-t border-gray-100 dark:border-gray-700">
         <div class="px-6 py-4 space-y-3">
-          <a href="#home" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Home</a>
-          <a href="#about" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">About</a>
-          <a href="#portfolio" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Portfolio</a>
-          <a href="#blog" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Blog</a>
-          <a href="#contact" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Contact</a>
+          <a href="#home" class="block py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Home</a>
+          <a href="#about" class="block py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">About</a>
+          <a href="#portfolio" class="block py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Portfolio</a>
+          <a href="#blog" class="block py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Blog</a>
+          <a href="#contact" class="block py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Contact</a>
         </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 bg-gradient-to-br from-cream to-beige dark:bg-primary">
-      <div class="max-w-6xl mx-auto px-6">
+    <section id="home" class="pt-32 pb-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:bg-navy">
+      <div class="max-w-7xl mx-auto px-6">
         <div class="max-w-3xl">
-          <p class="text-sm text-sage dark:text-mint mb-4 tracking-wide uppercase font-medium">Welcome to AI Dev Hub</p>
-          <h1 class="text-5xl md:text-6xl font-serif font-semibold text-primary dark:text-white leading-tight mb-6">
+          <p class="text-sm text-blue-600 dark:text-blue-400 mb-4 tracking-wide uppercase font-semibold">Welcome to AI Dev Hub</p>
+          <h1 class="text-5xl md:text-6xl font-display font-bold text-gray-900 dark:text-white leading-tight mb-6">
             Explore AI Innovation & Tech Insights
           </h1>
           <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8 max-w-2xl">
             Stay updated with the latest AI news, learn from expert tutorials, and discover cutting-edge technologies shaping our future.
           </p>
           <div class="flex flex-wrap gap-4">
-            <button data-scroll="blog" class="rounded-full bg-sage text-white px-8 py-3 text-sm font-medium hover:bg-sage/90 transition-colors shadow-md">
+            <button data-scroll="blog" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md">
               Explore AI News
             </button>
-            <button data-scroll="about" class="rounded-full border-2 border-sage text-sage px-8 py-3 text-sm font-medium hover:bg-sage hover:text-white transition-colors">
+            <button data-scroll="about" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-blue-600 hover:text-white transition-colors">
               About Me
             </button>
           </div>
@@ -180,11 +175,10 @@
     </section>
 
     <!-- About Me Section -->
-    <section id="about" class="py-20 bg-white dark:bg-primary">
-      <div class="max-w-6xl mx-auto px-6">
+    <section id="about" class="py-20 bg-white dark:bg-charcoal">
+      <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">About Me</h2>
-          <div class="section-divider"></div>
+          <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
           <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             I'm a passionate developer focused on artificial intelligence and modern web technologies. 
             I create this space to share knowledge, explore AI innovations, and connect with fellow developers.
@@ -192,34 +186,34 @@
         </div>
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div class="space-y-6">
-            <h3 class="text-2xl font-serif font-semibold text-primary dark:text-white">My Journey</h3>
+            <h3 class="text-2xl font-display font-semibold text-gray-900 dark:text-white">My Journey</h3>
             <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
               With a background in software development and a deep interest in AI, I've dedicated myself to 
               understanding and building intelligent systems. This blog serves as both a learning journal 
               and a resource for the developer community.
             </p>
             <div class="flex flex-wrap gap-3">
-              <span class="px-4 py-2 bg-beige dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">AI/ML Enthusiast</span>
-              <span class="px-4 py-2 bg-beige dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Full Stack Developer</span>
-              <span class="px-4 py-2 bg-beige dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Tech Writer</span>
+              <span class="px-4 py-2 bg-blue-50 dark:bg-gray-700 text-blue-600 dark:text-blue-300 rounded-lg text-sm font-medium">AI/ML Enthusiast</span>
+              <span class="px-4 py-2 bg-blue-50 dark:bg-gray-700 text-blue-600 dark:text-blue-300 rounded-lg text-sm font-medium">Full Stack Developer</span>
+              <span class="px-4 py-2 bg-blue-50 dark:bg-gray-700 text-blue-600 dark:text-blue-300 rounded-lg text-sm font-medium">Tech Writer</span>
             </div>
           </div>
           <div class="grid grid-cols-2 gap-4">
-            <div class="bg-cream dark:bg-gray-900/50 p-6 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div class="text-3xl font-serif font-semibold text-sage mb-2">5+</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-xl border border-gray-200 dark:border-gray-600 shadow-card">
+              <div class="text-3xl font-display font-bold text-blue-600 mb-2">5+</div>
+              <div class="text-sm text-gray-600 dark:text-gray-300">Years Experience</div>
             </div>
-            <div class="bg-cream dark:bg-gray-900/50 p-6 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div class="text-3xl font-serif font-semibold text-sage mb-2">50+</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Projects Built</div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-xl border border-gray-200 dark:border-gray-600 shadow-card">
+              <div class="text-3xl font-display font-bold text-blue-600 mb-2">50+</div>
+              <div class="text-sm text-gray-600 dark:text-gray-300">Projects Built</div>
             </div>
-            <div class="bg-cream dark:bg-gray-900/50 p-6 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div class="text-3xl font-serif font-semibold text-sage mb-2">100+</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Articles Written</div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-xl border border-gray-200 dark:border-gray-600 shadow-card">
+              <div class="text-3xl font-display font-bold text-blue-600 mb-2">100+</div>
+              <div class="text-sm text-gray-600 dark:text-gray-300">Articles Written</div>
             </div>
-            <div class="bg-cream dark:bg-gray-900/50 p-6 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div class="text-3xl font-serif font-semibold text-sage mb-2">10k+</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Community Reach</div>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-xl border border-gray-200 dark:border-gray-600 shadow-card">
+              <div class="text-3xl font-display font-bold text-blue-600 mb-2">10k+</div>
+              <div class="text-sm text-gray-600 dark:text-gray-300">Community Reach</div>
             </div>
           </div>
         </div>
@@ -227,50 +221,48 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="portfolio" class="py-20 bg-gradient-to-br from-beige to-cream dark:bg-gray-900/50">
-      <div class="max-w-6xl mx-auto px-6">
+    <section id="portfolio" class="py-20 bg-gray-50 dark:bg-navy">
+      <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">Skills & Technologies</h2>
-          <div class="section-divider"></div>
+          <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">Skills & Technologies</h2>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-white dark:bg-primary p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center mb-4">
-              <i class="ri-brain-line text-2xl text-sage"></i>
+          <div class="bg-white dark:bg-charcoal p-6 rounded-xl border border-gray-100 dark:border-gray-700 shadow-card hover:shadow-card-hover transition-shadow">
+            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="ri-brain-line text-2xl text-blue-600 dark:text-blue-400"></i>
             </div>
-            <h3 class="font-semibold text-primary dark:text-white mb-2">AI & Machine Learning</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">TensorFlow, PyTorch, Scikit-learn</p>
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-2">AI & Machine Learning</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">TensorFlow, PyTorch, Scikit-learn</p>
           </div>
-          <div class="bg-white dark:bg-primary p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center mb-4">
-              <i class="ri-openai-line text-2xl text-sage"></i>
+          <div class="bg-white dark:bg-charcoal p-6 rounded-xl border border-gray-100 dark:border-gray-700 shadow-card hover:shadow-card-hover transition-shadow">
+            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="ri-openai-line text-2xl text-blue-600 dark:text-blue-400"></i>
             </div>
-            <h3 class="font-semibold text-primary dark:text-white mb-2">LLMs & GPT</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">OpenAI API, LangChain, Prompt Engineering</p>
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-2">LLMs & GPT</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">OpenAI API, LangChain, Prompt Engineering</p>
           </div>
-          <div class="bg-white dark:bg-primary p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center mb-4">
-              <i class="ri-code-box-line text-2xl text-sage"></i>
+          <div class="bg-white dark:bg-charcoal p-6 rounded-xl border border-gray-100 dark:border-gray-700 shadow-card hover:shadow-card-hover transition-shadow">
+            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="ri-code-box-line text-2xl text-blue-600 dark:text-blue-400"></i>
             </div>
-            <h3 class="font-semibold text-primary dark:text-white mb-2">Web Development</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">React, Node.js, Python, JavaScript</p>
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Web Development</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">React, Node.js, Python, JavaScript</p>
           </div>
-          <div class="bg-white dark:bg-primary p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center mb-4">
-              <i class="ri-database-2-line text-2xl text-sage"></i>
+          <div class="bg-white dark:bg-charcoal p-6 rounded-xl border border-gray-100 dark:border-gray-700 shadow-card hover:shadow-card-hover transition-shadow">
+            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="ri-database-2-line text-2xl text-blue-600 dark:text-blue-400"></i>
             </div>
-            <h3 class="font-semibold text-primary dark:text-white mb-2">Data & Cloud</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">SQL, MongoDB, AWS, Vector DBs</p>
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Data & Cloud</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">SQL, MongoDB, AWS, Vector DBs</p>
           </div>
         </div>
       </div>
     </section>
     <!-- AI News Blog Section -->
-    <section id="blog" class="py-20 bg-white dark:bg-primary">
-      <div class="max-w-6xl mx-auto px-6">
+    <section id="blog" class="py-20 bg-white dark:bg-charcoal">
+      <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">Latest AI News</h2>
-          <div class="section-divider"></div>
+          <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">Latest AI News</h2>
           <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
             Stay updated with the latest developments in artificial intelligence from trusted sources
           </p>
@@ -279,19 +271,19 @@
 
         <!-- Filter Buttons -->
         <div class="flex flex-wrap justify-center gap-3 mb-8">
-          <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-sage text-white hover:bg-sage/90 transition-colors" data-category="all">
+          <button class="filter-btn active px-4 py-2 rounded-lg text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors" data-category="all">
             All News
           </button>
-          <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="llm">
+          <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition-colors" data-category="llm">
             LLMs
           </button>
-          <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="ml">
+          <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition-colors" data-category="ml">
             Machine Learning
           </button>
-          <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="vision">
+          <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition-colors" data-category="vision">
             Computer Vision
           </button>
-          <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="ethics">
+          <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition-colors" data-category="ethics">
             AI Ethics
           </button>
         </div>
@@ -303,7 +295,7 @@
               type="text" 
               id="searchInput" 
               placeholder="Search AI news..." 
-              class="w-full px-5 py-3 pr-12 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/50 text-primary dark:text-white placeholder-gray-400 focus:outline-none focus:border-sage dark:focus:border-sage text-sm"
+              class="w-full px-5 py-3 pr-12 rounded-lg border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-blue-600 dark:focus:border-blue-500 text-sm"
             />
             <i class="ri-search-line absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
           </div>
@@ -311,7 +303,7 @@
 
         <!-- Loading State -->
         <div id="loadingState" class="text-center py-12">
-          <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-gray-200 border-t-sage"></div>
+          <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-gray-200 border-t-blue-600"></div>
           <p class="text-gray-600 dark:text-gray-400 mt-4">Loading latest AI news...</p>
         </div>
 
@@ -321,7 +313,7 @@
             <i class="ri-error-warning-line text-2xl text-red-600 dark:text-red-400"></i>
           </div>
           <p class="text-gray-600 dark:text-gray-400 mb-4">Unable to load news. Please try again later.</p>
-          <button data-action="retry" class="px-6 py-2 bg-sage text-white rounded-full text-sm hover:bg-sage/90">
+          <button data-action="retry" class="px-6 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">
             Retry
           </button>
         </div>
@@ -333,53 +325,52 @@
 
         <!-- Load More Button -->
         <div id="loadMoreContainer" class="text-center mt-12 hidden">
-          <button data-action="load-more" class="rounded-full border-2 border-sage text-sage px-8 py-3 text-sm font-medium hover:bg-sage hover:text-white transition-colors">
+          <button data-action="load-more" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-blue-600 hover:text-white transition-colors">
             Load More Articles
           </button>
         </div>
       </div>
     </section>
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gradient-to-br from-beige to-cream dark:bg-gray-900/50">
-      <div class="max-w-6xl mx-auto px-6">
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-navy">
+      <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">Get In Touch</h2>
-          <div class="section-divider"></div>
+          <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h2>
           <p class="text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
             Have questions or want to collaborate? I'd love to hear from you!
           </p>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
-          <a href="https://github.com" target="_blank" class="bg-white dark:bg-primary p-8 rounded-2xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow group">
-            <div class="w-16 h-16 bg-sage/10 rounded-full flex items-center justify-center mb-5 mx-auto group-hover:bg-sage/20 transition-colors">
-              <i class="ri-github-line text-3xl text-sage"></i>
+          <a href="https://github.com" target="_blank" class="bg-white dark:bg-charcoal p-8 rounded-xl border border-gray-100 dark:border-gray-700 text-center hover:shadow-card-hover transition-shadow group">
+            <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-5 mx-auto group-hover:bg-blue-200 dark:group-hover:bg-blue-900/50 transition-colors">
+              <i class="ri-github-line text-3xl text-blue-600 dark:text-blue-400"></i>
             </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">GitHub</h3>
+            <h3 class="font-display font-semibold text-gray-900 dark:text-white mb-2">GitHub</h3>
             <p class="text-sm text-gray-500 dark:text-gray-400">Check out my open source projects</p>
           </a>
-          <a href="https://linkedin.com" target="_blank" class="bg-white dark:bg-primary p-8 rounded-2xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow group">
-            <div class="w-16 h-16 bg-sage/10 rounded-full flex items-center justify-center mb-5 mx-auto group-hover:bg-sage/20 transition-colors">
-              <i class="ri-linkedin-line text-3xl text-sage"></i>
+          <a href="https://linkedin.com" target="_blank" class="bg-white dark:bg-charcoal p-8 rounded-xl border border-gray-100 dark:border-gray-700 text-center hover:shadow-card-hover transition-shadow group">
+            <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-5 mx-auto group-hover:bg-blue-200 dark:group-hover:bg-blue-900/50 transition-colors">
+              <i class="ri-linkedin-line text-3xl text-blue-600 dark:text-blue-400"></i>
             </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">LinkedIn</h3>
+            <h3 class="font-display font-semibold text-gray-900 dark:text-white mb-2">LinkedIn</h3>
             <p class="text-sm text-gray-500 dark:text-gray-400">Connect professionally</p>
           </a>
-          <a href="mailto:hello@example.com" class="bg-white dark:bg-primary p-8 rounded-2xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow group">
-            <div class="w-16 h-16 bg-sage/10 rounded-full flex items-center justify-center mb-5 mx-auto group-hover:bg-sage/20 transition-colors">
-              <i class="ri-mail-line text-3xl text-sage"></i>
+          <a href="mailto:hello@example.com" class="bg-white dark:bg-charcoal p-8 rounded-xl border border-gray-100 dark:border-gray-700 text-center hover:shadow-card-hover transition-shadow group">
+            <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-5 mx-auto group-hover:bg-blue-200 dark:group-hover:bg-blue-900/50 transition-colors">
+              <i class="ri-mail-line text-3xl text-blue-600 dark:text-blue-400"></i>
             </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">Email</h3>
+            <h3 class="font-display font-semibold text-gray-900 dark:text-white mb-2">Email</h3>
             <p class="text-sm text-gray-500 dark:text-gray-400">Send me a message</p>
           </a>
         </div>
       </div>
     </section>
     <!-- Footer -->
-    <footer class="bg-primary text-white py-16">
-      <div class="max-w-6xl mx-auto px-6">
+    <footer class="bg-navy dark:bg-gray-900 text-white py-16">
+      <div class="max-w-7xl mx-auto px-6">
         <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
           <div>
-            <h3 class="font-serif font-semibold text-lg mb-4">AI Dev Hub</h3>
+            <h3 class="font-display font-semibold text-lg mb-4">AI Dev Hub</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
               Your source for AI news, tutorials, and insights.
             </p>
@@ -405,13 +396,13 @@
           <div>
             <h4 class="font-medium text-sm mb-4 text-gray-300">Connect</h4>
             <div class="flex space-x-3">
-              <a href="#" class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-sage transition-colors">
+              <a href="#" class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
                 <i class="ri-github-line text-sm"></i>
               </a>
-              <a href="#" class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-sage transition-colors">
+              <a href="#" class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
                 <i class="ri-linkedin-line text-sm"></i>
               </a>
-              <a href="#" class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-sage transition-colors">
+              <a href="#" class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
                 <i class="ri-mail-line text-sm"></i>
               </a>
             </div>
@@ -424,38 +415,15 @@
     </footer>
 
     <!-- Dark Mode Toggle -->
-    <button id="darkModeToggle" class="fixed bottom-20 right-6 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 w-10 h-10 flex items-center justify-center shadow-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+    <button id="darkModeToggle" class="fixed bottom-20 right-6 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
       <i class="ri-sun-line text-lg"></i>
     </button>
 
     <!-- Back to Top -->
-    <button id="backToTop" class="fixed bottom-6 right-6 bg-primary dark:bg-white text-white dark:text-primary w-10 h-10 flex items-center justify-center shadow-md opacity-0 transition-opacity hover:bg-gray-800 dark:hover:bg-gray-100">
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-navy dark:bg-white text-white dark:text-navy w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 transition-opacity hover:bg-gray-800 dark:hover:bg-gray-100">
       <i class="ri-arrow-up-line text-lg"></i>
     </button>
 
-    <!-- Article Modal -->
-    <div id="articleModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
-      <div class="bg-white dark:bg-primary max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border border-gray-200 dark:border-gray-800 shadow-2xl" id="modalContent">
-        <div class="p-8">
-          <div class="flex justify-between items-start mb-6">
-            <div class="flex-1 pr-4">
-              <h2 class="text-2xl font-serif font-semibold text-primary dark:text-white mb-2" id="modalTitle"></h2>
-              <div id="modalMeta" class="text-sm text-gray-500 dark:text-gray-400"></div>
-            </div>
-            <button id="modalCloseBtn" class="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors flex-shrink-0">
-              <i class="ri-close-line text-xl"></i>
-            </button>
-          </div>
-          <div id="modalImage" class="mb-6"></div>
-          <div id="modalContentText" class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-300"></div>
-          <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
-            <a id="modalLink" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-sage text-white px-6 py-3 text-sm font-medium hover:bg-sage/90 transition-colors">
-              Read Full Article <i class="ri-external-link-line"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
     <script>
       // Dark Mode Toggle
       const darkModeToggle = document.getElementById("darkModeToggle");

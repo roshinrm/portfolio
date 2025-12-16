@@ -208,36 +208,33 @@ function displayNews() {
 
   // Render news cards
   newsGrid.innerHTML = paginatedNews.map((article, index) => `
-    <article class="bg-white dark:bg-gray-900/50 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group" data-article-index="${index}">
+    <article class="bg-white dark:bg-charcoal rounded-xl shadow-card border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-card-hover transition-all duration-300 minimal-card">
       <div class="relative overflow-hidden">
         <img src="${sanitizeURL(article.image)}" alt="${sanitizeHTML(article.title)}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 article-image"/>
         <div class="absolute top-3 left-3">
-          <span class="px-3 py-1 bg-sage text-white text-xs font-medium rounded-full">${sanitizeHTML(getCategoryName(article.category))}</span>
+          <span class="px-3 py-1 bg-blue-600 text-white text-xs font-medium rounded-full">${sanitizeHTML(getCategoryName(article.category))}</span>
         </div>
       </div>
-      <div class="p-5">
+      <div class="p-6">
         <div class="flex items-center gap-2 mb-3 text-xs text-gray-500 dark:text-gray-400">
-          <span>${sanitizeHTML(formatDate(article.pubDate))}</span>
+          <span class="font-medium text-blue-600 dark:text-blue-400">${sanitizeHTML(article.source)}</span>
           <span>•</span>
-          <span class="truncate">${sanitizeHTML(article.source)}</span>
+          <span>${sanitizeHTML(formatDate(article.pubDate))}</span>
         </div>
-        <h3 class="font-serif font-semibold text-primary dark:text-white mb-2 line-clamp-2 group-hover:text-sage dark:group-hover:text-mint transition-colors">${sanitizeHTML(article.title)}</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3 mb-4">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2">${sanitizeHTML(article.title)}</h3>
+        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
           ${sanitizeHTML(article.description)}
         </p>
-        <div class="flex items-center justify-between">
-          <span class="text-sm text-sage font-medium">Read more →</span>
-        </div>
+        <a href="${sanitizeURL(article.link)}" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium text-sm">
+          Read Full Article 
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
       </div>
     </article>
   `).join('');
-
-  // Add click event listeners to article cards
-  newsGrid.querySelectorAll('article').forEach((card, index) => {
-    card.addEventListener('click', () => {
-      openArticleModal(paginatedNews[index]);
-    });
-  });
 
   // Add error handlers to images
   newsGrid.querySelectorAll('.article-image').forEach(img => {
@@ -294,11 +291,11 @@ function filterNews(category) {
   // Update button styles
   document.querySelectorAll('.filter-btn').forEach(btn => {
     if (btn.dataset.category === category) {
-      btn.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
-      btn.classList.add('bg-sage', 'text-white');
+      btn.classList.remove('bg-gray-100', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+      btn.classList.add('bg-blue-600', 'text-white');
     } else {
-      btn.classList.remove('bg-sage', 'text-white');
-      btn.classList.add('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+      btn.classList.remove('bg-blue-600', 'text-white');
+      btn.classList.add('bg-gray-100', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
     }
   });
   
@@ -319,61 +316,6 @@ function searchNews() {
 function loadMoreNews() {
   currentPage++;
   displayNews();
-}
-
-/**
- * Open article modal with details
- */
-function openArticleModal(article) {
-  const modalTitle = document.getElementById("modalTitle");
-  const modalMeta = document.getElementById("modalMeta");
-  const modalImage = document.getElementById("modalImage");
-  const modalContentText = document.getElementById("modalContentText");
-  const modalLink = document.getElementById("modalLink");
-  const articleModal = document.getElementById("articleModal");
-
-  // Safely set content using textContent where possible
-  modalTitle.textContent = article.title;
-  
-  // Build meta info safely
-  const metaSpan = document.createElement('span');
-  metaSpan.className = 'px-2 py-0.5 bg-sage/10 text-sage rounded';
-  metaSpan.textContent = getCategoryName(article.category);
-  modalMeta.textContent = '';
-  modalMeta.appendChild(document.createTextNode(`${formatDate(article.pubDate)} • ${article.source} • `));
-  modalMeta.appendChild(metaSpan);
-  
-  // Set image with error handling
-  const img = document.createElement('img');
-  img.src = sanitizeURL(article.image);
-  img.alt = article.title;
-  img.className = 'w-full rounded-xl';
-  img.addEventListener('error', function() { 
-    this.src = 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop';
-  });
-  modalImage.textContent = '';
-  modalImage.appendChild(img);
-  
-  // Set content safely
-  const contentP = document.createElement('p');
-  contentP.className = 'text-base leading-relaxed';
-  contentP.textContent = `${article.description.replace('...', '')} This is a preview from ${article.source}. Click below to read the full article on their website.`;
-  modalContentText.textContent = '';
-  modalContentText.appendChild(contentP);
-  
-  modalLink.href = sanitizeURL(article.link);
-
-  articleModal.style.display = "flex";
-  document.body.style.overflow = "hidden";
-}
-
-/**
- * Close article modal
- */
-function closeArticleModal() {
-  const articleModal = document.getElementById("articleModal");
-  articleModal.style.display = "none";
-  document.body.style.overflow = "auto";
 }
 
 // Initialize: Fetch news on page load
@@ -415,30 +357,6 @@ window.addEventListener('DOMContentLoaded', () => {
   if (aboutBtn) {
     aboutBtn.addEventListener('click', () => {
       document.getElementById('about')?.scrollIntoView({behavior: 'smooth'});
-    });
-  }
-
-  // Setup modal close button
-  const modalCloseBtn = document.getElementById('modalCloseBtn');
-  if (modalCloseBtn) {
-    modalCloseBtn.addEventListener('click', closeArticleModal);
-  }
-
-  // Close modal when clicking outside
-  const articleModal = document.getElementById('articleModal');
-  if (articleModal) {
-    articleModal.addEventListener('click', (e) => {
-      if (e.target === articleModal) {
-        closeArticleModal();
-      }
-    });
-  }
-
-  // Prevent modal content clicks from closing modal
-  const modalContent = document.getElementById('modalContent');
-  if (modalContent) {
-    modalContent.addEventListener('click', (e) => {
-      e.stopPropagation();
     });
   }
 
