@@ -3,6 +3,11 @@
  * Fetches and displays AI news from multiple RSS feeds using RSS2JSON API
  */
 
+// Configuration constants
+const CACHE_DURATION_MS = 3600000; // 1 hour
+const DESCRIPTION_MAX_LENGTH = 150;
+const NEWS_PER_PAGE = 9;
+
 // RSS feed sources for AI news
 const RSS_FEEDS = [
   'https://techcrunch.com/tag/artificial-intelligence/feed/',
@@ -13,8 +18,27 @@ const RSS_FEEDS = [
 let allNews = [];
 let displayedNews = [];
 let currentFilter = 'all';
-const newsPerPage = 9;
 let currentPage = 1;
+
+/**
+ * Sanitize HTML to prevent XSS attacks
+ */
+function sanitizeHTML(str) {
+  const temp = document.createElement('div');
+  temp.textContent = str;
+  return temp.innerHTML;
+}
+
+/**
+ * Safely extract hostname from URL
+ */
+function getHostname(url) {
+  try {
+    return new URL(url).hostname;
+  } catch (e) {
+    return 'Unknown Source';
+  }
+}
 
 /**
  * Categorize articles based on keywords in title and description
@@ -57,7 +81,7 @@ async function fetchAINews() {
     const cacheTime = localStorage.getItem('aiNewsCacheTime');
     const now = new Date().getTime();
     
-    if (cachedData && cacheTime && (now - parseInt(cacheTime)) < 3600000) {
+    if (cachedData && cacheTime && (now - parseInt(cacheTime)) < CACHE_DURATION_MS) {
       allNews = JSON.parse(cachedData);
       displayNews();
       return;
@@ -78,12 +102,13 @@ async function fetchAINews() {
       if (result.status === 'ok' && result.items) {
         result.items.forEach(item => {
           const category = categorizeArticle(item.title || '', item.description || '');
+          const link = item.link || '#';
           allNews.push({
             title: item.title || 'Untitled',
-            description: item.description ? item.description.replace(/<[^>]*>/g, '').substring(0, 150) + '...' : 'No description available',
-            link: item.link || '#',
+            description: item.description ? item.description.replace(/<[^>]*>/g, '').substring(0, DESCRIPTION_MAX_LENGTH) + '...' : 'No description available',
+            link: link,
             pubDate: item.pubDate || new Date().toISOString(),
-            source: item.author || new URL(item.link || 'https://example.com').hostname,
+            source: item.author || getHostname(link),
             image: item.thumbnail || item.enclosure?.link || 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
             category: category
           });
@@ -140,7 +165,7 @@ function displayNews() {
   }
 
   // Paginate
-  const paginatedNews = displayedNews.slice(0, currentPage * newsPerPage);
+  const paginatedNews = displayedNews.slice(0, currentPage * NEWS_PER_PAGE);
 
   // Update last updated time
   const cacheTime = localStorage.getItem('aiNewsCacheTime');
@@ -150,23 +175,23 @@ function displayNews() {
   }
 
   // Render news cards
-  newsGrid.innerHTML = paginatedNews.map(article => `
-    <article class="bg-white dark:bg-gray-900/50 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group" onclick='openArticleModal(${JSON.stringify(article).replace(/'/g, "&#39;")})'>
+  newsGrid.innerHTML = paginatedNews.map((article, index) => `
+    <article class="bg-white dark:bg-gray-900/50 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group" data-article-index="${index}">
       <div class="relative overflow-hidden">
-        <img src="${article.image}" alt="${article.title}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop'"/>
+        <img src="${sanitizeHTML(article.image)}" alt="${sanitizeHTML(article.title)}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop'"/>
         <div class="absolute top-3 left-3">
-          <span class="px-3 py-1 bg-sage text-white text-xs font-medium rounded-full">${getCategoryName(article.category)}</span>
+          <span class="px-3 py-1 bg-sage text-white text-xs font-medium rounded-full">${sanitizeHTML(getCategoryName(article.category))}</span>
         </div>
       </div>
       <div class="p-5">
         <div class="flex items-center gap-2 mb-3 text-xs text-gray-500 dark:text-gray-400">
-          <span>${formatDate(article.pubDate)}</span>
+          <span>${sanitizeHTML(formatDate(article.pubDate))}</span>
           <span>•</span>
-          <span class="truncate">${article.source}</span>
+          <span class="truncate">${sanitizeHTML(article.source)}</span>
         </div>
-        <h3 class="font-serif font-semibold text-primary dark:text-white mb-2 line-clamp-2 group-hover:text-sage dark:group-hover:text-mint transition-colors">${article.title}</h3>
+        <h3 class="font-serif font-semibold text-primary dark:text-white mb-2 line-clamp-2 group-hover:text-sage dark:group-hover:text-mint transition-colors">${sanitizeHTML(article.title)}</h3>
         <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3 mb-4">
-          ${article.description}
+          ${sanitizeHTML(article.description)}
         </p>
         <div class="flex items-center justify-between">
           <span class="text-sm text-sage font-medium">Read more →</span>
@@ -174,6 +199,13 @@ function displayNews() {
       </div>
     </article>
   `).join('');
+
+  // Add click event listeners to article cards
+  newsGrid.querySelectorAll('article').forEach((card, index) => {
+    card.addEventListener('click', () => {
+      openArticleModal(paginatedNews[index]);
+    });
+  });
 
   newsGrid.classList.remove('hidden');
 
@@ -261,10 +293,33 @@ function openArticleModal(article) {
   const modalLink = document.getElementById("modalLink");
   const articleModal = document.getElementById("articleModal");
 
+  // Safely set content using textContent where possible
   modalTitle.textContent = article.title;
-  modalMeta.innerHTML = `${formatDate(article.pubDate)} • ${article.source} • <span class="px-2 py-0.5 bg-sage/10 text-sage rounded">${getCategoryName(article.category)}</span>`;
-  modalImage.innerHTML = `<img src="${article.image}" alt="${article.title}" class="w-full rounded-xl" onerror="this.style.display='none'"/>`;
-  modalContent.innerHTML = `<p class="text-base leading-relaxed">${article.description.replace('...', '')} This is a preview from ${article.source}. Click below to read the full article on their website.</p>`;
+  
+  // Build meta info safely
+  const metaSpan = document.createElement('span');
+  metaSpan.className = 'px-2 py-0.5 bg-sage/10 text-sage rounded';
+  metaSpan.textContent = getCategoryName(article.category);
+  modalMeta.innerHTML = '';
+  modalMeta.appendChild(document.createTextNode(`${formatDate(article.pubDate)} • ${article.source} • `));
+  modalMeta.appendChild(metaSpan);
+  
+  // Set image with error handling
+  const img = document.createElement('img');
+  img.src = article.image;
+  img.alt = article.title;
+  img.className = 'w-full rounded-xl';
+  img.onerror = function() { this.style.display = 'none'; };
+  modalImage.innerHTML = '';
+  modalImage.appendChild(img);
+  
+  // Set content safely
+  const contentP = document.createElement('p');
+  contentP.className = 'text-base leading-relaxed';
+  contentP.textContent = `${article.description.replace('...', '')} This is a preview from ${article.source}. Click below to read the full article on their website.`;
+  modalContent.innerHTML = '';
+  modalContent.appendChild(contentP);
+  
   modalLink.href = article.link;
 
   articleModal.style.display = "flex";
