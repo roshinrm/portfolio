@@ -30,6 +30,23 @@ function sanitizeHTML(str) {
 }
 
 /**
+ * Validate and sanitize URL
+ */
+function sanitizeURL(url) {
+  try {
+    const parsed = new URL(url);
+    // Only allow http and https protocols
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+      return url;
+    }
+  } catch (e) {
+    // Invalid URL
+  }
+  // Return safe fallback
+  return 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop';
+}
+
+/**
  * Safely extract hostname from URL
  */
 function getHostname(url) {
@@ -82,9 +99,14 @@ async function fetchAINews() {
     const now = new Date().getTime();
     
     if (cachedData && cacheTime && (now - parseInt(cacheTime)) < CACHE_DURATION_MS) {
-      allNews = JSON.parse(cachedData);
-      displayNews();
-      return;
+      try {
+        allNews = JSON.parse(cachedData);
+        displayNews();
+        return;
+      } catch (parseError) {
+        // Invalid cached data, fetch fresh
+        console.warn('Invalid cached data, fetching fresh news');
+      }
     }
 
     // Fetch from multiple RSS feeds using RSS2JSON API
@@ -178,7 +200,7 @@ function displayNews() {
   newsGrid.innerHTML = paginatedNews.map((article, index) => `
     <article class="bg-white dark:bg-gray-900/50 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group" data-article-index="${index}">
       <div class="relative overflow-hidden">
-        <img src="${sanitizeHTML(article.image)}" alt="${sanitizeHTML(article.title)}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 article-image"/>
+        <img src="${sanitizeURL(article.image)}" alt="${sanitizeHTML(article.title)}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 article-image"/>
         <div class="absolute top-3 left-3">
           <span class="px-3 py-1 bg-sage text-white text-xs font-medium rounded-full">${sanitizeHTML(getCategoryName(article.category))}</span>
         </div>
@@ -313,7 +335,7 @@ function openArticleModal(article) {
   
   // Set image with error handling
   const img = document.createElement('img');
-  img.src = article.image;
+  img.src = sanitizeURL(article.image);
   img.alt = article.title;
   img.className = 'w-full rounded-xl';
   img.addEventListener('error', function() { 
@@ -329,7 +351,7 @@ function openArticleModal(article) {
   modalContentText.innerHTML = '';
   modalContentText.appendChild(contentP);
   
-  modalLink.href = article.link;
+  modalLink.href = sanitizeURL(article.link);
 
   articleModal.style.display = "flex";
   document.body.style.overflow = "hidden";
