@@ -178,7 +178,7 @@ function displayNews() {
   newsGrid.innerHTML = paginatedNews.map((article, index) => `
     <article class="bg-white dark:bg-gray-900/50 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group" data-article-index="${index}">
       <div class="relative overflow-hidden">
-        <img src="${sanitizeHTML(article.image)}" alt="${sanitizeHTML(article.title)}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop'"/>
+        <img src="${sanitizeHTML(article.image)}" alt="${sanitizeHTML(article.title)}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 article-image"/>
         <div class="absolute top-3 left-3">
           <span class="px-3 py-1 bg-sage text-white text-xs font-medium rounded-full">${sanitizeHTML(getCategoryName(article.category))}</span>
         </div>
@@ -204,6 +204,13 @@ function displayNews() {
   newsGrid.querySelectorAll('article').forEach((card, index) => {
     card.addEventListener('click', () => {
       openArticleModal(paginatedNews[index]);
+    });
+  });
+
+  // Add error handlers to images
+  newsGrid.querySelectorAll('.article-image').forEach(img => {
+    img.addEventListener('error', function() {
+      this.src = 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop';
     });
   });
 
@@ -289,7 +296,7 @@ function openArticleModal(article) {
   const modalTitle = document.getElementById("modalTitle");
   const modalMeta = document.getElementById("modalMeta");
   const modalImage = document.getElementById("modalImage");
-  const modalContent = document.getElementById("modalContent");
+  const modalContentText = document.getElementById("modalContentText");
   const modalLink = document.getElementById("modalLink");
   const articleModal = document.getElementById("articleModal");
 
@@ -309,7 +316,9 @@ function openArticleModal(article) {
   img.src = article.image;
   img.alt = article.title;
   img.className = 'w-full rounded-xl';
-  img.onerror = function() { this.style.display = 'none'; };
+  img.addEventListener('error', function() { 
+    this.src = 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop';
+  });
   modalImage.innerHTML = '';
   modalImage.appendChild(img);
   
@@ -317,8 +326,8 @@ function openArticleModal(article) {
   const contentP = document.createElement('p');
   contentP.className = 'text-base leading-relaxed';
   contentP.textContent = `${article.description.replace('...', '')} This is a preview from ${article.source}. Click below to read the full article on their website.`;
-  modalContent.innerHTML = '';
-  modalContent.appendChild(contentP);
+  modalContentText.innerHTML = '';
+  modalContentText.appendChild(contentP);
   
   modalLink.href = article.link;
 
@@ -329,15 +338,94 @@ function openArticleModal(article) {
 /**
  * Close article modal
  */
-function closeArticleModal(event) {
+function closeArticleModal() {
   const articleModal = document.getElementById("articleModal");
-  if (!event || event.target === articleModal) {
-    articleModal.style.display = "none";
-    document.body.style.overflow = "auto";
-  }
+  articleModal.style.display = "none";
+  document.body.style.overflow = "auto";
 }
 
 // Initialize: Fetch news on page load
 window.addEventListener('DOMContentLoaded', () => {
+  // Setup filter buttons
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterNews(btn.dataset.category);
+    });
+  });
+
+  // Setup search input
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('keyup', searchNews);
+  }
+
+  // Setup load more button
+  const loadMoreBtn = document.querySelector('[data-action="load-more"]');
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', loadMoreNews);
+  }
+
+  // Setup retry button
+  const retryBtn = document.querySelector('[data-action="retry"]');
+  if (retryBtn) {
+    retryBtn.addEventListener('click', fetchAINews);
+  }
+
+  // Setup hero buttons
+  const blogBtn = document.querySelector('[data-scroll="blog"]');
+  if (blogBtn) {
+    blogBtn.addEventListener('click', () => {
+      document.getElementById('blog')?.scrollIntoView({behavior: 'smooth'});
+    });
+  }
+
+  const aboutBtn = document.querySelector('[data-scroll="about"]');
+  if (aboutBtn) {
+    aboutBtn.addEventListener('click', () => {
+      document.getElementById('about')?.scrollIntoView({behavior: 'smooth'});
+    });
+  }
+
+  // Setup modal close button
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', closeArticleModal);
+  }
+
+  // Close modal when clicking outside
+  const articleModal = document.getElementById('articleModal');
+  if (articleModal) {
+    articleModal.addEventListener('click', (e) => {
+      if (e.target === articleModal) {
+        closeArticleModal();
+      }
+    });
+  }
+
+  // Prevent modal content clicks from closing modal
+  const modalContent = document.getElementById('modalContent');
+  if (modalContent) {
+    modalContent.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  // Setup mobile menu toggle
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (mobileMenuToggle && mobileMenu) {
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+
+  // Fetch initial news
   fetchAINews();
 });

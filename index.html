@@ -140,7 +140,7 @@
               Sign in
             </button>
           </div>
-          <button class="md:hidden text-primary dark:text-white" onclick="toggleMobileMenu()">
+          <button class="md:hidden text-primary dark:text-white" id="mobileMenuToggle">
             <i class="ri-menu-line text-xl"></i>
           </button>
         </div>
@@ -168,10 +168,10 @@
             Stay updated with the latest AI news, learn from expert tutorials, and discover cutting-edge technologies shaping our future.
           </p>
           <div class="flex flex-wrap gap-4">
-            <button onclick="document.getElementById('blog').scrollIntoView({behavior: 'smooth'})" class="rounded-full bg-sage text-white px-8 py-3 text-sm font-medium hover:bg-sage/90 transition-colors shadow-md">
+            <button data-scroll="blog" class="rounded-full bg-sage text-white px-8 py-3 text-sm font-medium hover:bg-sage/90 transition-colors shadow-md">
               Explore AI News
             </button>
-            <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" class="rounded-full border-2 border-sage text-sage px-8 py-3 text-sm font-medium hover:bg-sage hover:text-white transition-colors">
+            <button data-scroll="about" class="rounded-full border-2 border-sage text-sage px-8 py-3 text-sm font-medium hover:bg-sage hover:text-white transition-colors">
               About Me
             </button>
           </div>
@@ -279,19 +279,19 @@
 
         <!-- Filter Buttons -->
         <div class="flex flex-wrap justify-center gap-3 mb-8">
-          <button onclick="filterNews('all')" class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-sage text-white hover:bg-sage/90 transition-colors" data-category="all">
+          <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-sage text-white hover:bg-sage/90 transition-colors" data-category="all">
             All News
           </button>
-          <button onclick="filterNews('llm')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="llm">
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="llm">
             LLMs
           </button>
-          <button onclick="filterNews('ml')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="ml">
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="ml">
             Machine Learning
           </button>
-          <button onclick="filterNews('vision')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="vision">
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="vision">
             Computer Vision
           </button>
-          <button onclick="filterNews('ethics')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="ethics">
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="ethics">
             AI Ethics
           </button>
         </div>
@@ -304,7 +304,6 @@
               id="searchInput" 
               placeholder="Search AI news..." 
               class="w-full px-5 py-3 pr-12 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/50 text-primary dark:text-white placeholder-gray-400 focus:outline-none focus:border-sage dark:focus:border-sage text-sm"
-              onkeyup="searchNews()"
             />
             <i class="ri-search-line absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
           </div>
@@ -322,7 +321,7 @@
             <i class="ri-error-warning-line text-2xl text-red-600 dark:text-red-400"></i>
           </div>
           <p class="text-gray-600 dark:text-gray-400 mb-4">Unable to load news. Please try again later.</p>
-          <button onclick="fetchAINews()" class="px-6 py-2 bg-sage text-white rounded-full text-sm hover:bg-sage/90">
+          <button data-action="retry" class="px-6 py-2 bg-sage text-white rounded-full text-sm hover:bg-sage/90">
             Retry
           </button>
         </div>
@@ -334,7 +333,7 @@
 
         <!-- Load More Button -->
         <div id="loadMoreContainer" class="text-center mt-12 hidden">
-          <button onclick="loadMoreNews()" class="rounded-full border-2 border-sage text-sage px-8 py-3 text-sm font-medium hover:bg-sage hover:text-white transition-colors">
+          <button data-action="load-more" class="rounded-full border-2 border-sage text-sage px-8 py-3 text-sm font-medium hover:bg-sage hover:text-white transition-colors">
             Load More Articles
           </button>
         </div>
@@ -435,20 +434,20 @@
     </button>
 
     <!-- Article Modal -->
-    <div id="articleModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50 p-4" onclick="closeArticleModal(event)">
-      <div class="bg-white dark:bg-primary max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border border-gray-200 dark:border-gray-800 shadow-2xl" onclick="event.stopPropagation()">
+    <div id="articleModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+      <div class="bg-white dark:bg-primary max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border border-gray-200 dark:border-gray-800 shadow-2xl" id="modalContent">
         <div class="p-8">
           <div class="flex justify-between items-start mb-6">
             <div class="flex-1 pr-4">
               <h2 class="text-2xl font-serif font-semibold text-primary dark:text-white mb-2" id="modalTitle"></h2>
               <div id="modalMeta" class="text-sm text-gray-500 dark:text-gray-400"></div>
             </div>
-            <button onclick="closeArticleModal()" class="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors flex-shrink-0">
+            <button id="modalCloseBtn" class="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors flex-shrink-0">
               <i class="ri-close-line text-xl"></i>
             </button>
           </div>
           <div id="modalImage" class="mb-6"></div>
-          <div id="modalContent" class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-300"></div>
+          <div id="modalContentText" class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-300"></div>
           <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
             <a id="modalLink" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-sage text-white px-6 py-3 text-sm font-medium hover:bg-sage/90 transition-colors">
               Read Full Article <i class="ri-external-link-line"></i>
@@ -458,15 +457,6 @@
       </div>
     </div>
     <script>
-      // Mobile Menu Toggle
-      const mobileMenu = document.getElementById("mobileMenu");
-      function toggleMobileMenu() {
-        mobileMenu.classList.toggle("hidden");
-      }
-      document.querySelectorAll("#mobileMenu a").forEach((link) => {
-        link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
-      });
-
       // Dark Mode Toggle
       const darkModeToggle = document.getElementById("darkModeToggle");
       const darkModeIcon = darkModeToggle.querySelector("i");
