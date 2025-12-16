@@ -24,6 +24,10 @@
             colors: {
               primary: "#111111",
               accent: "#2563eb",
+              cream: "#F5F0E8",
+              beige: "#E8F4F0",
+              sage: "#8BA888",
+              mint: "#A8D8B9",
             },
             fontFamily: {
               serif: ['Crimson Pro', 'Georgia', 'serif'],
@@ -93,11 +97,25 @@
       .section-divider {
         width: 40px;
         height: 2px;
-        background: #111111;
+        background: #8BA888;
         margin: 0 auto 2rem;
       }
       .dark .section-divider {
-        background: #fafafa;
+        background: #A8D8B9;
+      }
+
+      /* Line clamp utilities */
+      .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
       }
     </style>
   </head>
@@ -111,13 +129,16 @@
           </div>
           <div class="hidden md:flex items-center space-x-8">
             <a href="#home" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Home</a>
-            <a href="#featured" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Featured</a>
-            <a href="#topics" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Topics</a>
-            <a href="#articles" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Articles</a>
-            <a href="#community" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Community</a>
-            <a href="#newsletter" class="bg-primary dark:bg-white text-white dark:text-primary px-4 py-2 text-sm hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors">
-              Subscribe
-            </a>
+            <a href="#about" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">About</a>
+            <a href="#portfolio" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Portfolio</a>
+            <a href="#blog" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Blog</a>
+            <a href="#contact" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Contact</a>
+            <button class="rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-4 py-2 text-sm hover:bg-cream dark:hover:bg-gray-800 transition-colors">
+              Login
+            </button>
+            <button class="rounded-full bg-sage text-white px-4 py-2 text-sm hover:bg-sage/90 transition-colors">
+              Sign in
+            </button>
           </div>
           <button class="md:hidden text-primary dark:text-white" onclick="toggleMobileMenu()">
             <i class="ri-menu-line text-xl"></i>
@@ -127,314 +148,230 @@
       <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-primary border-t border-gray-100 dark:border-gray-800">
         <div class="px-6 py-4 space-y-3">
           <a href="#home" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Home</a>
-          <a href="#featured" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Featured</a>
-          <a href="#topics" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Topics</a>
-          <a href="#articles" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Articles</a>
-          <a href="#community" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Community</a>
-          <a href="#newsletter" class="inline-block bg-primary dark:bg-white text-white dark:text-primary px-4 py-2 text-sm">Subscribe</a>
+          <a href="#about" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">About</a>
+          <a href="#portfolio" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Portfolio</a>
+          <a href="#blog" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Blog</a>
+          <a href="#contact" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Contact</a>
         </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 bg-white dark:bg-primary">
+    <section id="home" class="pt-32 pb-20 bg-gradient-to-br from-cream to-beige dark:bg-primary">
       <div class="max-w-6xl mx-auto px-6">
         <div class="max-w-3xl">
-          <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 tracking-wide uppercase">Welcome to AI Dev Hub</p>
-          <h1 class="text-4xl md:text-5xl font-serif font-semibold text-primary dark:text-white leading-tight mb-6">
-            A community for developers exploring artificial intelligence
+          <p class="text-sm text-sage dark:text-mint mb-4 tracking-wide uppercase font-medium">Welcome to AI Dev Hub</p>
+          <h1 class="text-5xl md:text-6xl font-serif font-semibold text-primary dark:text-white leading-tight mb-6">
+            Explore AI Innovation & Tech Insights
           </h1>
           <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8 max-w-2xl">
-            Learn, share knowledge, and grow together. We publish tutorials, insights, and discussions to help developers understand and build with AI.
+            Stay updated with the latest AI news, learn from expert tutorials, and discover cutting-edge technologies shaping our future.
           </p>
           <div class="flex flex-wrap gap-4">
-            <button onclick="document.getElementById('articles').scrollIntoView({behavior: 'smooth'})" class="bg-primary dark:bg-white text-white dark:text-primary px-6 py-3 text-sm hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors">
-              Browse Articles
+            <button onclick="document.getElementById('blog').scrollIntoView({behavior: 'smooth'})" class="rounded-full bg-sage text-white px-8 py-3 text-sm font-medium hover:bg-sage/90 transition-colors shadow-md">
+              Explore AI News
             </button>
-            <button onclick="document.getElementById('community').scrollIntoView({behavior: 'smooth'})" class="border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-6 py-3 text-sm hover:border-primary dark:hover:border-white hover:text-primary dark:hover:text-white transition-colors">
-              Join Community
+            <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" class="rounded-full border-2 border-sage text-sage px-8 py-3 text-sm font-medium hover:bg-sage hover:text-white transition-colors">
+              About Me
             </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Stats Bar -->
-    <section class="py-12 border-y border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <p class="text-3xl font-serif font-semibold text-primary dark:text-white">150+</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Articles</p>
-          </div>
-          <div>
-            <p class="text-3xl font-serif font-semibold text-primary dark:text-white">10k+</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Developers</p>
-          </div>
-          <div>
-            <p class="text-3xl font-serif font-semibold text-primary dark:text-white">6</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">AI Topics</p>
-          </div>
-          <div>
-            <p class="text-3xl font-serif font-semibold text-primary dark:text-white">5k+</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Community Members</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Featured Articles -->
-    <section id="featured" class="py-20 bg-white dark:bg-primary">
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-white dark:bg-primary">
       <div class="max-w-6xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">Featured Articles</h2>
+          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">About Me</h2>
           <div class="section-divider"></div>
-        </div>
-        <div class="grid md:grid-cols-2 gap-12">
-          <div>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wide">Editor's Pick</p>
-            <div class="minimal-card bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800">
-              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop" alt="Getting Started with Large Language Models" class="w-full h-52 object-cover"/>
-              <div class="p-6">
-                <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">LLM Basics</span>
-                <h3 class="text-xl font-serif font-semibold text-primary dark:text-white mt-2 mb-3">Getting Started with Large Language Models: A Developer's Guide</h3>
-                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
-                  Learn the fundamentals of LLMs, from understanding tokenization to building your first AI-powered application.
-                </p>
-                <div class="flex items-center justify-between text-sm">
-                  <span class="text-gray-500 dark:text-gray-400">12 min read</span>
-                  <a href="#" class="text-primary dark:text-white hover:underline">Read Article →</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wide">Popular This Week</p>
-            <div class="space-y-4">
-              <div class="minimal-card p-4 bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 flex gap-4">
-                <div class="w-10 h-10 bg-gray-100 dark:bg-gray-800 flex items-center justify-center flex-shrink-0">
-                  <i class="ri-robot-line text-gray-600 dark:text-gray-400"></i>
-                </div>
-                <div class="flex-1">
-                  <h4 class="font-medium text-primary dark:text-white text-sm">ChatGPT API Best Practices</h4>
-                  <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Tips for building production-ready apps • 2.4k views</p>
-                </div>
-              </div>
-              <div class="minimal-card p-4 bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 flex gap-4">
-                <div class="w-10 h-10 bg-gray-100 dark:bg-gray-800 flex items-center justify-center flex-shrink-0">
-                  <i class="ri-code-box-line text-gray-600 dark:text-gray-400"></i>
-                </div>
-                <div class="flex-1">
-                  <h4 class="font-medium text-primary dark:text-white text-sm">Python for Machine Learning</h4>
-                  <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Essential libraries and frameworks • 1.8k views</p>
-                </div>
-              </div>
-              <div class="minimal-card p-4 bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 flex gap-4">
-                <div class="w-10 h-10 bg-gray-100 dark:bg-gray-800 flex items-center justify-center flex-shrink-0">
-                  <i class="ri-database-2-line text-gray-600 dark:text-gray-400"></i>
-                </div>
-                <div class="flex-1">
-                  <h4 class="font-medium text-primary dark:text-white text-sm">Vector Databases Explained</h4>
-                  <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Power your AI with semantic search • 1.5k views</p>
-                </div>
-              </div>
-              <div class="minimal-card p-4 bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 flex gap-4">
-                <div class="w-10 h-10 bg-gray-100 dark:bg-gray-800 flex items-center justify-center flex-shrink-0">
-                  <i class="ri-lightbulb-line text-gray-600 dark:text-gray-400"></i>
-                </div>
-                <div class="flex-1">
-                  <h4 class="font-medium text-primary dark:text-white text-sm">Prompt Engineering 101</h4>
-                  <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Write prompts that get results • 3.2k views</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Topics Section -->
-    <section id="topics" class="py-20 bg-gray-50 dark:bg-gray-900/50">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">Explore Topics</h2>
-          <div class="section-divider"></div>
-          <p class="text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
-            Dive into various AI domains with our curated content
+          <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            I'm a passionate developer focused on artificial intelligence and modern web technologies. 
+            I create this space to share knowledge, explore AI innovations, and connect with fellow developers.
           </p>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="minimal-card p-6 bg-white dark:bg-primary border border-gray-100 dark:border-gray-800 text-center">
-            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-4 mx-auto">
-              <i class="ri-brain-line text-xl text-gray-600 dark:text-gray-400"></i>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6">
+            <h3 class="text-2xl font-serif font-semibold text-primary dark:text-white">My Journey</h3>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+              With a background in software development and a deep interest in AI, I've dedicated myself to 
+              understanding and building intelligent systems. This blog serves as both a learning journal 
+              and a resource for the developer community.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 bg-beige dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">AI/ML Enthusiast</span>
+              <span class="px-4 py-2 bg-beige dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Full Stack Developer</span>
+              <span class="px-4 py-2 bg-beige dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Tech Writer</span>
             </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">Machine Learning</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Neural networks, model training and evaluation</p>
-            <span class="text-xs text-gray-400 dark:text-gray-500">24 Articles</span>
           </div>
-          <div class="minimal-card p-6 bg-white dark:bg-primary border border-gray-100 dark:border-gray-800 text-center">
-            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-4 mx-auto">
-              <i class="ri-openai-line text-xl text-gray-600 dark:text-gray-400"></i>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-cream dark:bg-gray-900/50 p-6 rounded-2xl border border-gray-200 dark:border-gray-800">
+              <div class="text-3xl font-serif font-semibold text-sage mb-2">5+</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
             </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">LLMs & ChatGPT</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Prompt engineering and conversational AI</p>
-            <span class="text-xs text-gray-400 dark:text-gray-500">31 Articles</span>
-          </div>
-          <div class="minimal-card p-6 bg-white dark:bg-primary border border-gray-100 dark:border-gray-800 text-center">
-            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-4 mx-auto">
-              <i class="ri-eye-line text-xl text-gray-600 dark:text-gray-400"></i>
+            <div class="bg-cream dark:bg-gray-900/50 p-6 rounded-2xl border border-gray-200 dark:border-gray-800">
+              <div class="text-3xl font-serif font-semibold text-sage mb-2">50+</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Projects Built</div>
             </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">Computer Vision</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Image recognition and object detection</p>
-            <span class="text-xs text-gray-400 dark:text-gray-500">18 Articles</span>
-          </div>
-          <div class="minimal-card p-6 bg-white dark:bg-primary border border-gray-100 dark:border-gray-800 text-center">
-            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-4 mx-auto">
-              <i class="ri-chat-voice-line text-xl text-gray-600 dark:text-gray-400"></i>
+            <div class="bg-cream dark:bg-gray-900/50 p-6 rounded-2xl border border-gray-200 dark:border-gray-800">
+              <div class="text-3xl font-serif font-semibold text-sage mb-2">100+</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Articles Written</div>
             </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">NLP & Text</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Text analysis and sentiment detection</p>
-            <span class="text-xs text-gray-400 dark:text-gray-500">22 Articles</span>
-          </div>
-          <div class="minimal-card p-6 bg-white dark:bg-primary border border-gray-100 dark:border-gray-800 text-center">
-            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-4 mx-auto">
-              <i class="ri-tools-line text-xl text-gray-600 dark:text-gray-400"></i>
+            <div class="bg-cream dark:bg-gray-900/50 p-6 rounded-2xl border border-gray-200 dark:border-gray-800">
+              <div class="text-3xl font-serif font-semibold text-sage mb-2">10k+</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Community Reach</div>
             </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">AI Tools</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">TensorFlow, PyTorch, LangChain</p>
-            <span class="text-xs text-gray-400 dark:text-gray-500">27 Articles</span>
-          </div>
-          <div class="minimal-card p-6 bg-white dark:bg-primary border border-gray-100 dark:border-gray-800 text-center">
-            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-4 mx-auto">
-              <i class="ri-flask-line text-xl text-gray-600 dark:text-gray-400"></i>
-            </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">AI Ethics</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Responsible AI and bias detection</p>
-            <span class="text-xs text-gray-400 dark:text-gray-500">15 Articles</span>
           </div>
         </div>
       </div>
     </section>
-    <!-- Latest Articles -->
-    <section id="articles" class="py-20 bg-white dark:bg-primary">
+
+    <!-- Skills Section -->
+    <section id="portfolio" class="py-20 bg-gradient-to-br from-beige to-cream dark:bg-gray-900/50">
       <div class="max-w-6xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">Latest Articles</h2>
+          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">Skills & Technologies</h2>
           <div class="section-divider"></div>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <article class="minimal-card bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 cursor-pointer" onclick="showArticleDetails('llm-guide')">
-            <img src="https://images.unsplash.com/photo-1676299081847-824916de030a?w=600&h=300&fit=crop" alt="Building AI Chatbots" class="w-full h-44 object-cover"/>
-            <div class="p-5">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Tutorial</span>
-                <span class="text-xs text-gray-400 dark:text-gray-500">8 min</span>
-              </div>
-              <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">Building Your First AI Chatbot with Python</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                Step-by-step guide to creating an intelligent chatbot using OpenAI's API.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">Python</span>
-                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">OpenAI</span>
-              </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white dark:bg-primary p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center mb-4">
+              <i class="ri-brain-line text-2xl text-sage"></i>
             </div>
-          </article>
-          <article class="minimal-card bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 cursor-pointer" onclick="showArticleDetails('ml-beginners')">
-            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&h=300&fit=crop" alt="Machine Learning Basics" class="w-full h-44 object-cover"/>
-            <div class="p-5">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Beginner</span>
-                <span class="text-xs text-gray-400 dark:text-gray-500">15 min</span>
-              </div>
-              <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">Machine Learning for Beginners</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                Understand the fundamentals of ML without complex math.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">ML Basics</span>
-                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">Theory</span>
-              </div>
+            <h3 class="font-semibold text-primary dark:text-white mb-2">AI & Machine Learning</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">TensorFlow, PyTorch, Scikit-learn</p>
+          </div>
+          <div class="bg-white dark:bg-primary p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center mb-4">
+              <i class="ri-openai-line text-2xl text-sage"></i>
             </div>
-          </article>
-          <article class="minimal-card bg-white dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 cursor-pointer" onclick="showArticleDetails('rag-systems')">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=300&fit=crop" alt="RAG Systems" class="w-full h-44 object-cover"/>
-            <div class="p-5">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Advanced</span>
-                <span class="text-xs text-gray-400 dark:text-gray-500">20 min</span>
-              </div>
-              <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">RAG Systems: Knowledge-Powered AI</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                Build Retrieval Augmented Generation systems for context-aware responses.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">RAG</span>
-                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">LangChain</span>
-              </div>
+            <h3 class="font-semibold text-primary dark:text-white mb-2">LLMs & GPT</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">OpenAI API, LangChain, Prompt Engineering</p>
+          </div>
+          <div class="bg-white dark:bg-primary p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center mb-4">
+              <i class="ri-code-box-line text-2xl text-sage"></i>
             </div>
-          </article>
+            <h3 class="font-semibold text-primary dark:text-white mb-2">Web Development</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">React, Node.js, Python, JavaScript</p>
+          </div>
+          <div class="bg-white dark:bg-primary p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center mb-4">
+              <i class="ri-database-2-line text-2xl text-sage"></i>
+            </div>
+            <h3 class="font-semibold text-primary dark:text-white mb-2">Data & Cloud</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">SQL, MongoDB, AWS, Vector DBs</p>
+          </div>
         </div>
-        <div class="text-center mt-12">
-          <button class="border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-6 py-3 text-sm hover:border-primary dark:hover:border-white hover:text-primary dark:hover:text-white transition-colors">
-            View All Articles →
+      </div>
+    </section>
+    <!-- AI News Blog Section -->
+    <section id="blog" class="py-20 bg-white dark:bg-primary">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">Latest AI News</h2>
+          <div class="section-divider"></div>
+          <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+            Stay updated with the latest developments in artificial intelligence from trusted sources
+          </p>
+          <div id="lastUpdated" class="text-xs text-gray-400 dark:text-gray-500"></div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+          <button onclick="filterNews('all')" class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-sage text-white hover:bg-sage/90 transition-colors" data-category="all">
+            All News
+          </button>
+          <button onclick="filterNews('llm')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="llm">
+            LLMs
+          </button>
+          <button onclick="filterNews('ml')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="ml">
+            Machine Learning
+          </button>
+          <button onclick="filterNews('vision')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="vision">
+            Computer Vision
+          </button>
+          <button onclick="filterNews('ethics')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="ethics">
+            AI Ethics
+          </button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="max-w-2xl mx-auto mb-12">
+          <div class="relative">
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="Search AI news..." 
+              class="w-full px-5 py-3 pr-12 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/50 text-primary dark:text-white placeholder-gray-400 focus:outline-none focus:border-sage dark:focus:border-sage text-sm"
+              onkeyup="searchNews()"
+            />
+            <i class="ri-search-line absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
+          </div>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="text-center py-12">
+          <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-gray-200 border-t-sage"></div>
+          <p class="text-gray-600 dark:text-gray-400 mt-4">Loading latest AI news...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" class="hidden text-center py-12">
+          <div class="w-16 h-16 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="ri-error-warning-line text-2xl text-red-600 dark:text-red-400"></i>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">Unable to load news. Please try again later.</p>
+          <button onclick="fetchAINews()" class="px-6 py-2 bg-sage text-white rounded-full text-sm hover:bg-sage/90">
+            Retry
+          </button>
+        </div>
+
+        <!-- News Grid -->
+        <div id="newsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
+          <!-- News cards will be inserted here by JavaScript -->
+        </div>
+
+        <!-- Load More Button -->
+        <div id="loadMoreContainer" class="text-center mt-12 hidden">
+          <button onclick="loadMoreNews()" class="rounded-full border-2 border-sage text-sage px-8 py-3 text-sm font-medium hover:bg-sage hover:text-white transition-colors">
+            Load More Articles
           </button>
         </div>
       </div>
     </section>
-    <!-- Community Section -->
-    <section id="community" class="py-20 bg-gray-50 dark:bg-gray-900/50">
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-beige to-cream dark:bg-gray-900/50">
       <div class="max-w-6xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">Join the Community</h2>
+          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">Get In Touch</h2>
           <div class="section-divider"></div>
           <p class="text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
-            Connect with developers, share knowledge, and grow together
+            Have questions or want to collaborate? I'd love to hear from you!
           </p>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
-          <div class="minimal-card p-8 bg-white dark:bg-primary border border-gray-100 dark:border-gray-800 text-center">
-            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-5 mx-auto">
-              <i class="ri-discord-line text-xl text-gray-600 dark:text-gray-400"></i>
+          <a href="https://github.com" target="_blank" class="bg-white dark:bg-primary p-8 rounded-2xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow group">
+            <div class="w-16 h-16 bg-sage/10 rounded-full flex items-center justify-center mb-5 mx-auto group-hover:bg-sage/20 transition-colors">
+              <i class="ri-github-line text-3xl text-sage"></i>
             </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">Discord</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-5">5,000+ developers discussing AI</p>
-            <a href="#" class="text-sm text-primary dark:text-white hover:underline">Join Server →</a>
-          </div>
-          <div class="minimal-card p-8 bg-white dark:bg-primary border border-gray-100 dark:border-gray-800 text-center">
-            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-5 mx-auto">
-              <i class="ri-github-line text-xl text-gray-600 dark:text-gray-400"></i>
+            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">GitHub</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Check out my open source projects</p>
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="bg-white dark:bg-primary p-8 rounded-2xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow group">
+            <div class="w-16 h-16 bg-sage/10 rounded-full flex items-center justify-center mb-5 mx-auto group-hover:bg-sage/20 transition-colors">
+              <i class="ri-linkedin-line text-3xl text-sage"></i>
             </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">Open Source</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-5">Contribute to AI projects</p>
-            <a href="#" class="text-sm text-primary dark:text-white hover:underline">View GitHub →</a>
-          </div>
-          <div class="minimal-card p-8 bg-white dark:bg-primary border border-gray-100 dark:border-gray-800 text-center">
-            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-5 mx-auto">
-              <i class="ri-question-answer-line text-xl text-gray-600 dark:text-gray-400"></i>
+            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">LinkedIn</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Connect professionally</p>
+          </a>
+          <a href="mailto:hello@example.com" class="bg-white dark:bg-primary p-8 rounded-2xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow group">
+            <div class="w-16 h-16 bg-sage/10 rounded-full flex items-center justify-center mb-5 mx-auto group-hover:bg-sage/20 transition-colors">
+              <i class="ri-mail-line text-3xl text-sage"></i>
             </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">Q&A Forum</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-5">Get help from the community</p>
-            <a href="#" class="text-sm text-primary dark:text-white hover:underline">Visit Forum →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section id="newsletter" class="py-20 bg-white dark:bg-primary">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="max-w-xl mx-auto text-center">
-          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">Stay Updated</h2>
-          <div class="section-divider"></div>
-          <p class="text-gray-600 dark:text-gray-300 mb-8">
-            Get weekly AI tutorials and community updates. Join 10,000+ developers.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-3">
-            <input type="email" placeholder="your@email.com" class="flex-1 px-4 py-3 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/50 text-primary dark:text-white placeholder-gray-400 focus:outline-none focus:border-primary dark:focus:border-white text-sm"/>
-            <button class="bg-primary dark:bg-white text-white dark:text-primary px-6 py-3 text-sm hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors whitespace-nowrap">
-              Subscribe
-            </button>
-          </div>
-          <p class="text-xs text-gray-400 dark:text-gray-500 mt-4">No spam. Unsubscribe anytime.</p>
+            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">Email</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Send me a message</p>
+          </a>
         </div>
       </div>
     </section>
@@ -445,16 +382,16 @@
           <div>
             <h3 class="font-serif font-semibold text-lg mb-4">AI Dev Hub</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
-              Helping developers learn, share, and grow in AI.
+              Your source for AI news, tutorials, and insights.
             </p>
           </div>
           <div>
             <h4 class="font-medium text-sm mb-4 text-gray-300">Navigation</h4>
             <ul class="space-y-2 text-sm">
               <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-              <li><a href="#featured" class="text-gray-400 hover:text-white transition-colors">Featured</a></li>
-              <li><a href="#topics" class="text-gray-400 hover:text-white transition-colors">Topics</a></li>
-              <li><a href="#articles" class="text-gray-400 hover:text-white transition-colors">Articles</a></li>
+              <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+              <li><a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
+              <li><a href="#blog" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
             </ul>
           </div>
           <div>
@@ -463,26 +400,26 @@
               <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Machine Learning</a></li>
               <li><a href="#" class="text-gray-400 hover:text-white transition-colors">LLMs & ChatGPT</a></li>
               <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Computer Vision</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">NLP & Text</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">AI Ethics</a></li>
             </ul>
           </div>
           <div>
             <h4 class="font-medium text-sm mb-4 text-gray-300">Connect</h4>
             <div class="flex space-x-3">
-              <a href="#" class="w-9 h-9 bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition-colors">
+              <a href="#" class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-sage transition-colors">
                 <i class="ri-github-line text-sm"></i>
               </a>
-              <a href="#" class="w-9 h-9 bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition-colors">
-                <i class="ri-discord-line text-sm"></i>
+              <a href="#" class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-sage transition-colors">
+                <i class="ri-linkedin-line text-sm"></i>
               </a>
-              <a href="#" class="w-9 h-9 bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition-colors">
-                <i class="ri-twitter-x-line text-sm"></i>
+              <a href="#" class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-sage transition-colors">
+                <i class="ri-mail-line text-sm"></i>
               </a>
             </div>
           </div>
         </div>
         <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p class="text-gray-500 text-sm">© 2025 AI Dev Hub</p>
+          <p class="text-gray-500 text-sm">© 2025 AI Dev Hub. All news sourced from respective publishers.</p>
         </div>
       </div>
     </footer>
@@ -498,16 +435,25 @@
     </button>
 
     <!-- Article Modal -->
-    <div id="articleModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50">
-      <div class="bg-white dark:bg-primary max-w-3xl w-full mx-4 max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-gray-800">
+    <div id="articleModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50 p-4" onclick="closeArticleModal(event)">
+      <div class="bg-white dark:bg-primary max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border border-gray-200 dark:border-gray-800 shadow-2xl" onclick="event.stopPropagation()">
         <div class="p-8">
-          <div class="flex justify-between items-center mb-6">
-            <h2 class="text-xl font-serif font-semibold text-primary dark:text-white" id="modalTitle"></h2>
-            <button onclick="closeArticleModal()" class="w-8 h-8 bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors">
-              <i class="ri-close-line text-lg"></i>
+          <div class="flex justify-between items-start mb-6">
+            <div class="flex-1 pr-4">
+              <h2 class="text-2xl font-serif font-semibold text-primary dark:text-white mb-2" id="modalTitle"></h2>
+              <div id="modalMeta" class="text-sm text-gray-500 dark:text-gray-400"></div>
+            </div>
+            <button onclick="closeArticleModal()" class="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors flex-shrink-0">
+              <i class="ri-close-line text-xl"></i>
             </button>
           </div>
-          <div id="modalContent" class="prose prose-sm dark:prose-invert max-w-none"></div>
+          <div id="modalImage" class="mb-6"></div>
+          <div id="modalContent" class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-300"></div>
+          <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
+            <a id="modalLink" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-sage text-white px-6 py-3 text-sm font-medium hover:bg-sage/90 transition-colors">
+              Read Full Article <i class="ri-external-link-line"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -558,92 +504,255 @@
         });
       });
 
+      // AI News Fetching
+      const RSS_FEEDS = [
+        'https://techcrunch.com/tag/artificial-intelligence/feed/',
+        'https://venturebeat.com/category/ai/feed/',
+        'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml',
+      ];
+
+      let allNews = [];
+      let displayedNews = [];
+      let currentFilter = 'all';
+      let newsPerPage = 9;
+      let currentPage = 1;
+
+      // Categorize articles based on keywords
+      function categorizeArticle(title, description) {
+        const content = (title + ' ' + description).toLowerCase();
+        if (content.includes('gpt') || content.includes('llm') || content.includes('language model') || content.includes('chatbot') || content.includes('chatgpt')) {
+          return 'llm';
+        } else if (content.includes('computer vision') || content.includes('image recognition') || content.includes('opencv') || content.includes('visual')) {
+          return 'vision';
+        } else if (content.includes('ethics') || content.includes('bias') || content.includes('responsible') || content.includes('fairness')) {
+          return 'ethics';
+        } else if (content.includes('machine learning') || content.includes('neural network') || content.includes('deep learning') || content.includes('model')) {
+          return 'ml';
+        }
+        return 'ml'; // default category
+      }
+
+      async function fetchAINews() {
+        const loadingState = document.getElementById('loadingState');
+        const errorState = document.getElementById('errorState');
+        const newsGrid = document.getElementById('newsGrid');
+        
+        loadingState.classList.remove('hidden');
+        errorState.classList.add('hidden');
+        newsGrid.classList.add('hidden');
+
+        try {
+          // Check cache first (cache for 1 hour)
+          const cachedData = localStorage.getItem('aiNewsCache');
+          const cacheTime = localStorage.getItem('aiNewsCacheTime');
+          const now = new Date().getTime();
+          
+          if (cachedData && cacheTime && (now - parseInt(cacheTime)) < 3600000) {
+            allNews = JSON.parse(cachedData);
+            displayNews();
+            return;
+          }
+
+          // Fetch from multiple RSS feeds
+          const RSS2JSON_API = 'https://api.rss2json.com/v1/api.json?rss_url=';
+          const promises = RSS_FEEDS.map(feed => 
+            fetch(RSS2JSON_API + encodeURIComponent(feed))
+              .then(res => res.json())
+              .catch(err => ({ status: 'error', items: [] }))
+          );
+
+          const results = await Promise.all(promises);
+          
+          allNews = [];
+          results.forEach(result => {
+            if (result.status === 'ok' && result.items) {
+              result.items.forEach(item => {
+                const category = categorizeArticle(item.title || '', item.description || '');
+                allNews.push({
+                  title: item.title || 'Untitled',
+                  description: item.description ? item.description.replace(/<[^>]*>/g, '').substring(0, 150) + '...' : 'No description available',
+                  link: item.link || '#',
+                  pubDate: item.pubDate || new Date().toISOString(),
+                  source: item.author || new URL(item.link || 'https://example.com').hostname,
+                  image: item.thumbnail || item.enclosure?.link || 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
+                  category: category
+                });
+              });
+            }
+          });
+
+          // Sort by date
+          allNews.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+
+          // Remove duplicates by title
+          const seen = new Set();
+          allNews = allNews.filter(article => {
+            if (seen.has(article.title)) return false;
+            seen.add(article.title);
+            return true;
+          });
+
+          // Cache the results
+          localStorage.setItem('aiNewsCache', JSON.stringify(allNews));
+          localStorage.setItem('aiNewsCacheTime', now.toString());
+
+          displayNews();
+        } catch (error) {
+          console.error('Error fetching news:', error);
+          loadingState.classList.add('hidden');
+          errorState.classList.remove('hidden');
+        }
+      }
+
+      function displayNews() {
+        const loadingState = document.getElementById('loadingState');
+        const newsGrid = document.getElementById('newsGrid');
+        const loadMoreContainer = document.getElementById('loadMoreContainer');
+        const lastUpdated = document.getElementById('lastUpdated');
+
+        loadingState.classList.add('hidden');
+
+        // Filter news
+        displayedNews = currentFilter === 'all' 
+          ? allNews 
+          : allNews.filter(article => article.category === currentFilter);
+
+        // Apply search filter
+        const searchTerm = document.getElementById('searchInput')?.value.toLowerCase() || '';
+        if (searchTerm) {
+          displayedNews = displayedNews.filter(article => 
+            article.title.toLowerCase().includes(searchTerm) ||
+            article.description.toLowerCase().includes(searchTerm)
+          );
+        }
+
+        // Paginate
+        const paginatedNews = displayedNews.slice(0, currentPage * newsPerPage);
+
+        // Update last updated time
+        const cacheTime = localStorage.getItem('aiNewsCacheTime');
+        if (cacheTime) {
+          const date = new Date(parseInt(cacheTime));
+          lastUpdated.textContent = `Last updated: ${date.toLocaleString()}`;
+        }
+
+        // Render news cards
+        newsGrid.innerHTML = paginatedNews.map(article => `
+          <article class="bg-white dark:bg-gray-900/50 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group" onclick='openArticleModal(${JSON.stringify(article).replace(/'/g, "&#39;")})'>
+            <div class="relative overflow-hidden">
+              <img src="${article.image}" alt="${article.title}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop'"/>
+              <div class="absolute top-3 left-3">
+                <span class="px-3 py-1 bg-sage text-white text-xs font-medium rounded-full">${getCategoryName(article.category)}</span>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-3 text-xs text-gray-500 dark:text-gray-400">
+                <span>${formatDate(article.pubDate)}</span>
+                <span>•</span>
+                <span class="truncate">${article.source}</span>
+              </div>
+              <h3 class="font-serif font-semibold text-primary dark:text-white mb-2 line-clamp-2 group-hover:text-sage dark:group-hover:text-mint transition-colors">${article.title}</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3 mb-4">
+                ${article.description}
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-sage font-medium">Read more →</span>
+              </div>
+            </div>
+          </article>
+        `).join('');
+
+        newsGrid.classList.remove('hidden');
+
+        // Show/hide load more button
+        if (paginatedNews.length < displayedNews.length) {
+          loadMoreContainer.classList.remove('hidden');
+        } else {
+          loadMoreContainer.classList.add('hidden');
+        }
+      }
+
+      function getCategoryName(category) {
+        const names = {
+          'llm': 'LLMs',
+          'ml': 'Machine Learning',
+          'vision': 'Computer Vision',
+          'ethics': 'AI Ethics'
+        };
+        return names[category] || 'AI News';
+      }
+
+      function formatDate(dateString) {
+        const date = new Date(dateString);
+        const now = new Date();
+        const diff = now - date;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        
+        if (days === 0) return 'Today';
+        if (days === 1) return 'Yesterday';
+        if (days < 7) return `${days} days ago`;
+        return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
+
+      function filterNews(category) {
+        currentFilter = category;
+        currentPage = 1;
+        
+        // Update button styles
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          if (btn.dataset.category === category) {
+            btn.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+            btn.classList.add('bg-sage', 'text-white');
+          } else {
+            btn.classList.remove('bg-sage', 'text-white');
+            btn.classList.add('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+          }
+        });
+        
+        displayNews();
+      }
+
+      function searchNews() {
+        currentPage = 1;
+        displayNews();
+      }
+
+      function loadMoreNews() {
+        currentPage++;
+        displayNews();
+      }
+
       // Article Modal
       const articleModal = document.getElementById("articleModal");
-      const modalTitle = document.getElementById("modalTitle");
-      const modalContent = document.getElementById("modalContent");
       
-      const articleDetails = {
-        'llm-guide': {
-          title: "Building Your First AI Chatbot with Python",
-          content: `
-            <div class="space-y-4">
-              <img src="https://images.unsplash.com/photo-1676299081847-824916de030a?w=800&h=400&fit=crop" alt="AI Chatbot" class="w-full"/>
-              <div class="flex gap-4 text-xs text-gray-500">
-                <span>8 min read</span>
-                <span>Dec 1, 2024</span>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300">In this tutorial, we'll build an intelligent chatbot using OpenAI's API and Python.</p>
-              <h3 class="font-semibold text-primary dark:text-white">What You'll Learn</h3>
-              <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm">
-                <li>Setting up OpenAI API</li>
-                <li>Understanding tokens and context</li>
-                <li>Building a conversational loop</li>
-                <li>Error handling and deployment</li>
-              </ul>
-              <p class="text-gray-500 text-sm italic">This is a preview. Full article coming soon.</p>
-            </div>
-          `
-        },
-        'ml-beginners': {
-          title: "Machine Learning for Beginners",
-          content: `
-            <div class="space-y-4">
-              <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=400&fit=crop" alt="ML Basics" class="w-full"/>
-              <div class="flex gap-4 text-xs text-gray-500">
-                <span>15 min read</span>
-                <span>Nov 28, 2024</span>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300">A friendly introduction to machine learning concepts without complex math.</p>
-              <h3 class="font-semibold text-primary dark:text-white">Topics Covered</h3>
-              <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm">
-                <li>Supervised vs. Unsupervised Learning</li>
-                <li>Training and Test Data</li>
-                <li>Common Algorithms</li>
-                <li>Getting Started with Your First Model</li>
-              </ul>
-              <p class="text-gray-500 text-sm italic">This is a preview. Full article coming soon.</p>
-            </div>
-          `
-        },
-        'rag-systems': {
-          title: "RAG Systems: Knowledge-Powered AI",
-          content: `
-            <div class="space-y-4">
-              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=400&fit=crop" alt="RAG Systems" class="w-full"/>
-              <div class="flex gap-4 text-xs text-gray-500">
-                <span>20 min read</span>
-                <span>Nov 25, 2024</span>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300">Learn to build Retrieval Augmented Generation systems for accurate, context-aware AI responses.</p>
-              <h3 class="font-semibold text-primary dark:text-white">What's Covered</h3>
-              <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm">
-                <li>Document Ingestion</li>
-                <li>Vector Embeddings</li>
-                <li>Choosing Vector Databases</li>
-                <li>Production Best Practices</li>
-              </ul>
-              <p class="text-gray-500 text-sm italic">This is a preview. Full article coming soon.</p>
-            </div>
-          `
-        }
-      };
-      
-      function showArticleDetails(article) {
-        modalTitle.textContent = articleDetails[article].title;
-        modalContent.innerHTML = articleDetails[article].content;
+      function openArticleModal(article) {
+        const modalTitle = document.getElementById("modalTitle");
+        const modalMeta = document.getElementById("modalMeta");
+        const modalImage = document.getElementById("modalImage");
+        const modalContent = document.getElementById("modalContent");
+        const modalLink = document.getElementById("modalLink");
+
+        modalTitle.textContent = article.title;
+        modalMeta.innerHTML = `${formatDate(article.pubDate)} • ${article.source} • <span class="px-2 py-0.5 bg-sage/10 text-sage rounded">${getCategoryName(article.category)}</span>`;
+        modalImage.innerHTML = `<img src="${article.image}" alt="${article.title}" class="w-full rounded-xl" onerror="this.style.display='none'"/>`;
+        modalContent.innerHTML = `<p class="text-base leading-relaxed">${article.description.replace('...', '')} This is a preview from ${article.source}. Click below to read the full article on their website.</p>`;
+        modalLink.href = article.link;
+
         articleModal.style.display = "flex";
         document.body.style.overflow = "hidden";
       }
       
-      function closeArticleModal() {
-        articleModal.style.display = "none";
-        document.body.style.overflow = "auto";
+      function closeArticleModal(event) {
+        if (!event || event.target === articleModal) {
+          articleModal.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
       }
-      
-      window.onclick = function (event) {
-        if (event.target === articleModal) closeArticleModal();
-      };
+
+      // Initialize: Fetch news on page load
+      window.addEventListener('DOMContentLoaded', () => {
+        fetchAINews();
+      });
     </script>
   </body>
 </html>
