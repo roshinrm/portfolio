@@ -208,7 +208,7 @@ function displayNews() {
 
   // Render news cards
   newsGrid.innerHTML = paginatedNews.map((article, index) => `
-    <article class="bg-white dark:bg-charcoal rounded-xl shadow-card border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-card-hover transition-all duration-300 minimal-card">
+    <article class="bg-white dark:bg-charcoal rounded-xl shadow-card border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-card-hover transition-all duration-300 minimal-card group">
       <div class="relative overflow-hidden">
         <img src="${sanitizeURL(article.image)}" alt="${sanitizeHTML(article.title)}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 article-image"/>
         <div class="absolute top-3 left-3">
