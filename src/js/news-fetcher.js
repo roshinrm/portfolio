@@ -21,6 +21,13 @@ let currentFilter = 'all';
 let currentPage = 1;
 
 /**
+ * Strip HTML tags from string
+ */
+function stripHTML(str) {
+  return str.replace(/<[^>]*>/g, '');
+}
+
+/**
  * Sanitize HTML to prevent XSS attacks
  */
 function sanitizeHTML(str) {
@@ -127,7 +134,7 @@ async function fetchAINews() {
           const link = item.link || '#';
           allNews.push({
             title: item.title || 'Untitled',
-            description: item.description ? item.description.replace(/<[^>]*>/g, '').substring(0, DESCRIPTION_MAX_LENGTH) + '...' : 'No description available',
+            description: item.description ? stripHTML(item.description).substring(0, DESCRIPTION_MAX_LENGTH) + '...' : 'No description available',
             link: link,
             pubDate: item.pubDate || new Date().toISOString(),
             source: item.author || getHostname(link),
@@ -329,7 +336,7 @@ function openArticleModal(article) {
   const metaSpan = document.createElement('span');
   metaSpan.className = 'px-2 py-0.5 bg-sage/10 text-sage rounded';
   metaSpan.textContent = getCategoryName(article.category);
-  modalMeta.innerHTML = '';
+  modalMeta.textContent = '';
   modalMeta.appendChild(document.createTextNode(`${formatDate(article.pubDate)} • ${article.source} • `));
   modalMeta.appendChild(metaSpan);
   
@@ -341,14 +348,14 @@ function openArticleModal(article) {
   img.addEventListener('error', function() { 
     this.src = 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop';
   });
-  modalImage.innerHTML = '';
+  modalImage.textContent = '';
   modalImage.appendChild(img);
   
   // Set content safely
   const contentP = document.createElement('p');
   contentP.className = 'text-base leading-relaxed';
   contentP.textContent = `${article.description.replace('...', '')} This is a preview from ${article.source}. Click below to read the full article on their website.`;
-  modalContentText.innerHTML = '';
+  modalContentText.textContent = '';
   modalContentText.appendChild(contentP);
   
   modalLink.href = sanitizeURL(article.link);
