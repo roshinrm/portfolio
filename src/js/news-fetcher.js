@@ -21,10 +21,13 @@ let currentFilter = 'all';
 let currentPage = 1;
 
 /**
- * Strip HTML tags from string
+ * Strip HTML tags from string safely
+ * Uses DOM parser for robust HTML removal
  */
 function stripHTML(str) {
-  return str.replace(/<[^>]*>/g, '');
+  const temp = document.createElement('div');
+  temp.innerHTML = str;
+  return temp.textContent || temp.innerText || '';
 }
 
 /**
