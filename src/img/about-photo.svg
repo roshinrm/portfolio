@@ -1,0 +1,173 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="aboutBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b"/>
+      <stop offset="100%" style="stop-color:#312e81"/>
+    </linearGradient>
+    <linearGradient id="aboutBlobGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#818cf8"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+    <linearGradient id="aboutSkinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f4c8a8"/>
+      <stop offset="100%" style="stop-color:#dba888"/>
+    </linearGradient>
+    <linearGradient id="aboutHoodieGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="aboutDeskGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Dark background -->
+  <rect width="400" height="400" fill="url(#aboutBgGrad)"/>
+  
+  <!-- Decorative blob -->
+  <ellipse cx="200" cy="220" rx="150" ry="160" fill="url(#aboutBlobGrad)" opacity="0.2"/>
+  
+  <!-- Grid pattern overlay -->
+  <pattern id="aboutGrid" width="25" height="25" patternUnits="userSpaceOnUse">
+    <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#4338ca" stroke-width="0.5" opacity="0.3"/>
+  </pattern>
+  <rect width="400" height="400" fill="url(#aboutGrid)"/>
+  
+  <!-- Code window (background) -->
+  <g transform="translate(30, 50)">
+    <rect x="0" y="0" width="120" height="140" rx="8" fill="#1e293b" opacity="0.9"/>
+    <circle cx="12" cy="10" r="3" fill="#ef4444"/>
+    <circle cx="22" cy="10" r="3" fill="#fbbf24"/>
+    <circle cx="32" cy="10" r="3" fill="#22c55e"/>
+    <rect x="10" y="28" width="50" height="5" rx="1" fill="#818cf8"/>
+    <rect x="10" y="38" width="75" height="5" rx="1" fill="#34d399"/>
+    <rect x="18" y="48" width="55" height="5" rx="1" fill="#f472b6"/>
+    <rect x="18" y="58" width="40" height="5" rx="1" fill="#60a5fa"/>
+    <rect x="10" y="68" width="65" height="5" rx="1" fill="#fbbf24"/>
+    <rect x="18" y="78" width="50" height="5" rx="1" fill="#818cf8"/>
+    <rect x="10" y="88" width="70" height="5" rx="1" fill="#34d399"/>
+    <rect x="10" y="98" width="45" height="5" rx="1" fill="#f472b6"/>
+    <rect x="18" y="108" width="60" height="5" rx="1" fill="#60a5fa"/>
+    <rect x="18" y="118" width="35" height="5" rx="1" fill="#c6f84d"/>
+  </g>
+  
+  <!-- Monitor -->
+  <g transform="translate(250, 60)">
+    <rect x="0" y="0" width="110" height="80" rx="5" fill="#1e293b"/>
+    <rect x="5" y="5" width="100" height="62" rx="3" fill="#0f172a"/>
+    <rect x="12" y="12" width="40" height="4" rx="1" fill="#22c55e"/>
+    <rect x="12" y="20" width="60" height="4" rx="1" fill="#818cf8"/>
+    <rect x="12" y="28" width="50" height="4" rx="1" fill="#f472b6"/>
+    <rect x="12" y="36" width="70" height="4" rx="1" fill="#60a5fa"/>
+    <rect x="12" y="44" width="35" height="4" rx="1" fill="#fbbf24"/>
+    <rect x="12" y="52" width="55" height="4" rx="1" fill="#c6f84d"/>
+    <rect x="45" y="80" width="20" height="20" fill="#374151"/>
+    <rect x="30" y="97" width="50" height="6" rx="2" fill="#374151"/>
+  </g>
+  
+  <!-- Odoo badge -->
+  <g transform="translate(280, 45)">
+    <rect x="0" y="0" width="65" height="24" rx="5" fill="#714B67"/>
+    <text x="32" y="16" font-size="11" fill="white" text-anchor="middle" font-family="sans-serif" font-weight="bold">Odoo</text>
+  </g>
+  
+  <!-- API badge -->
+  <g transform="translate(295, 150)">
+    <rect x="0" y="0" width="55" height="24" rx="5" fill="#22c55e"/>
+    <text x="28" y="16" font-size="11" fill="white" text-anchor="middle" font-family="monospace" font-weight="bold">API</text>
+  </g>
+  
+  <!-- Desk -->
+  <rect x="20" y="280" width="360" height="10" rx="3" fill="url(#aboutDeskGrad)"/>
+  <rect x="35" y="290" width="8" height="70" fill="#3b82f6"/>
+  <rect x="357" y="290" width="8" height="70" fill="#3b82f6"/>
+  <rect x="20" y="355" width="360" height="8" rx="2" fill="#2563eb"/>
+  
+  <!-- Chair -->
+  <rect x="140" y="320" width="120" height="12" rx="4" fill="#4b5563"/>
+  <rect x="190" y="332" width="20" height="40" fill="#374151"/>
+  <ellipse cx="200" cy="375" rx="30" ry="6" fill="#374151"/>
+  
+  <!-- Person body -->
+  <path d="M125 220 Q125 175 200 175 Q275 175 275 220 L285 295 L115 295 Z" fill="url(#aboutHoodieGrad)"/>
+  <path d="M140 195 Q200 215 260 195" stroke="#6d28d9" stroke-width="3" fill="none"/>
+  
+  <!-- Neck -->
+  <rect x="178" y="148" width="44" height="30" fill="url(#aboutSkinGrad)"/>
+  
+  <!-- Head -->
+  <ellipse cx="200" cy="110" rx="52" ry="56" fill="url(#aboutSkinGrad)"/>
+  
+  <!-- Hair -->
+  <path d="M148 95 Q148 50 200 50 Q252 50 252 95 Q252 75 225 70 Q200 64 175 70 Q148 75 148 95" fill="#1e293b"/>
+  <path d="M252 85 Q267 95 258 112" fill="#1e293b"/>
+  
+  <!-- Ears -->
+  <ellipse cx="148" cy="110" rx="7" ry="11" fill="url(#aboutSkinGrad)"/>
+  <ellipse cx="252" cy="110" rx="7" ry="11" fill="url(#aboutSkinGrad)"/>
+  
+  <!-- Glasses -->
+  <rect x="162" y="100" width="32" height="23" rx="5" fill="none" stroke="#e2e8f0" stroke-width="2.5"/>
+  <rect x="206" y="100" width="32" height="23" rx="5" fill="none" stroke="#e2e8f0" stroke-width="2.5"/>
+  <line x1="194" y1="111" x2="206" y2="111" stroke="#e2e8f0" stroke-width="2.5"/>
+  <line x1="162" y1="111" x2="148" y2="106" stroke="#e2e8f0" stroke-width="2"/>
+  <line x1="238" y1="111" x2="252" y2="106" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="166" y="103" width="7" height="3" rx="1" fill="white" opacity="0.4"/>
+  <rect x="210" y="103" width="7" height="3" rx="1" fill="white" opacity="0.4"/>
+  
+  <!-- Eyes -->
+  <circle cx="178" cy="111" r="4" fill="#1e293b"/>
+  <circle cx="222" cy="111" r="4" fill="#1e293b"/>
+  
+  <!-- Eyebrows -->
+  <path d="M166 94 Q178 90 190 94" stroke="#1e293b" stroke-width="2" fill="none"/>
+  <path d="M210 94 Q222 90 234 94" stroke="#1e293b" stroke-width="2" fill="none"/>
+  
+  <!-- Smile -->
+  <path d="M185 138 Q200 150 215 138" stroke="#c08060" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Arms -->
+  <path d="M125 220 Q85 250 95 290 L125 295" fill="url(#aboutHoodieGrad)"/>
+  <path d="M275 220 Q315 250 305 290 L275 295" fill="url(#aboutHoodieGrad)"/>
+  
+  <!-- Hands -->
+  <ellipse cx="115" cy="280" rx="18" ry="10" fill="url(#aboutSkinGrad)"/>
+  <ellipse cx="285" cy="280" rx="18" ry="10" fill="url(#aboutSkinGrad)"/>
+  
+  <!-- Laptop -->
+  <g transform="translate(135, 240)">
+    <rect x="0" y="32" width="130" height="8" rx="2" fill="#374151"/>
+    <rect x="8" y="0" width="114" height="35" rx="4" fill="#1e293b"/>
+    <rect x="13" y="5" width="104" height="25" rx="2" fill="#0f172a"/>
+    <rect x="18" y="10" width="45" height="4" rx="1" fill="#c6f84d"/>
+    <rect x="68" y="10" width="28" height="4" rx="1" fill="#60a5fa"/>
+    <rect x="18" y="18" width="60" height="4" rx="1" fill="#f472b6"/>
+    <rect x="82" y="18" width="30" height="4" rx="1" fill="#818cf8"/>
+  </g>
+  
+  <!-- Plant -->
+  <g transform="translate(5, 310)">
+    <path d="M18 40 L10 80 L55 80 L47 40 Z" fill="#a78bfa"/>
+    <rect x="8" y="35" width="50" height="8" rx="3" fill="#8b5cf6"/>
+    <path d="M32 40 Q18 15 32 -5 Q46 15 32 40" fill="#22c55e"/>
+    <path d="M32 40 Q50 20 65 5 Q55 28 32 40" fill="#16a34a"/>
+    <path d="M32 40 Q14 20 -2 5 Q10 28 32 40" fill="#4ade80"/>
+  </g>
+  
+  <!-- Floating decorative elements -->
+  <text x="55" y="30" font-size="12" fill="#c6f84d" opacity="0.5" font-family="monospace">&lt;code&gt;</text>
+  <text x="310" y="25" font-size="11" fill="#f472b6" opacity="0.4" font-family="monospace">{ }</text>
+  <text x="340" y="200" font-size="10" fill="#60a5fa" opacity="0.4" font-family="monospace">def()</text>
+  <text x="15" y="250" font-size="11" fill="#818cf8" opacity="0.4" font-family="monospace">//</text>
+  
+  <!-- Gears -->
+  <g transform="translate(355, 320)" opacity="0.25">
+    <circle cx="12" cy="12" r="10" fill="none" stroke="#94a3b8" stroke-width="3"/>
+    <circle cx="12" cy="12" r="3" fill="#94a3b8"/>
+  </g>
+  <g transform="translate(370, 345)" opacity="0.2">
+    <circle cx="8" cy="8" r="6" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <circle cx="8" cy="8" r="2" fill="#94a3b8"/>
+  </g>
+</svg>

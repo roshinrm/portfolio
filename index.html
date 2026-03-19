@@ -1,15 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Dev Hub - Learn, Share, Grow Together</title>
-    <meta name="description" content="A tech blog focused on AI, helping developers learn, share knowledge, and understand each other. Explore tutorials, insights, and community discussions on artificial intelligence." />
+    <title>Roshin R M - Senior Odoo Developer & ERP Specialist</title>
+    <meta
+      name="description"
+      content="Senior Odoo Developer with 4+ years of experience in designing and implementing robust ERP solutions. Proficient in API development, custom module creation, and system integrations."
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Serif+Display:ital@0;1&display=swap"
       rel="stylesheet"
     />
     <link
@@ -23,32 +26,189 @@
           extend: {
             colors: {
               primary: "#111111",
-              accent: "#2563eb",
-              cream: "#F5F0E8",
-              beige: "#E8F4F0",
-              sage: "#8BA888",
-              mint: "#A8D8B9",
+              lime: {
+                light: "#d4f879",
+                DEFAULT: "#c6f84d",
+                dark: "#9dfc5a",
+              },
+              cream: "#fafafa",
             },
             fontFamily: {
-              serif: ['Crimson Pro', 'Georgia', 'serif'],
-              sans: ['Inter', 'system-ui', 'sans-serif'],
+              serif: ["Playfair Display", "Georgia", "serif"],
+              display: ["DM Serif Display", "Georgia", "serif"],
+              sans: ["Inter", "system-ui", "sans-serif"],
             },
           },
         },
       };
     </script>
     <style>
-      :where([class^="ri-"])::before { content: "\f3c2"; }
-      
+      :where([class^="ri-"])::before {
+        content: "\f3c2";
+      }
+
       body {
-        font-family: 'Inter', system-ui, sans-serif;
+        font-family: "Inter", system-ui, sans-serif;
         -webkit-font-smoothing: antialiased;
       }
-      
-      h1, h2, h3, h4 {
-        font-family: 'Crimson Pro', Georgia, serif;
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", Georgia, serif;
       }
-      
+
+      .font-display {
+        font-family: "DM Serif Display", Georgia, serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Lime gradient background */
+      .lime-gradient {
+        background: linear-gradient(
+          135deg,
+          #d4f879 0%,
+          #9dfc5a 50%,
+          #c6f84d 100%
+        );
+      }
+
+      .lime-gradient-light {
+        background: linear-gradient(180deg, #e8fdb5 0%, #d4f879 100%);
+      }
+
+      /* Hero gradient overlay */
+      .hero-gradient {
+        background: radial-gradient(
+          ellipse at center bottom,
+          rgba(198, 248, 77, 0.4) 0%,
+          transparent 70%
+        );
+      }
+
+      /* Floating badge animation */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .floating {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .floating-delay-1 {
+        animation-delay: 0.5s;
+      }
+      .floating-delay-2 {
+        animation-delay: 1s;
+      }
+      .floating-delay-3 {
+        animation-delay: 1.5s;
+      }
+
+      /* Card glow effect */
+      .card-glow {
+        box-shadow: 0 0 60px rgba(198, 248, 77, 0.3);
+      }
+
+      /* Process connector line */
+      .process-line {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #c6f84d 0%, #9dfc5a 100%);
+        z-index: 0;
+      }
+
+      /* Skill tag styles */
+      .skill-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        background: white;
+        border-radius: 50px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        font-size: 14px;
+        font-weight: 500;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .skill-tag:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      .skill-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Project card hover */
+      .project-card {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Company logo marquee */
+      .marquee {
+        display: flex;
+        overflow: hidden;
+        user-select: none;
+        gap: 40px;
+      }
+
+      .marquee-content {
+        flex-shrink: 0;
+        display: flex;
+        justify-content: space-around;
+        gap: 40px;
+        min-width: 100%;
+        animation: scroll 25s linear infinite;
+      }
+
+      @keyframes scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
+
+      /* Quote marks */
+      .quote-mark {
+        font-family: Georgia, serif;
+        font-size: 120px;
+        line-height: 1;
+        color: #111;
+        opacity: 0.1;
+      }
+
+      /* Dark mode styles */
       .dark {
         color-scheme: dark;
       }
@@ -59,430 +219,981 @@
       .dark .bg-white {
         background-color: #111111;
       }
-      .dark .bg-gray-50 {
-        background-color: #0a0a0a;
+      .dark .skill-tag {
+        background: #1a1a1a;
+        color: #fafafa;
       }
-      
-      html { scroll-behavior: smooth; }
-      
-      /* Minimal underline effect for links */
-      .nav-link {
-        position: relative;
-        transition: color 0.2s ease;
-      }
-      .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 1px;
-        background-color: currentColor;
-        transition: width 0.2s ease;
-      }
-      .nav-link:hover::after {
-        width: 100%;
-      }
-      
-      /* Clean card hover effect */
-      .minimal-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .minimal-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-      }
-      
-      /* Section divider */
-      .section-divider {
-        width: 40px;
-        height: 2px;
-        background: #8BA888;
-        margin: 0 auto 2rem;
-      }
-      .dark .section-divider {
-        background: #A8D8B9;
+      .dark .text-primary {
+        color: #fafafa;
       }
 
-      /* Line clamp utilities */
-      .line-clamp-2 {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+      /* Availability dot pulse */
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
       }
-      .line-clamp-3 {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
+      .pulse-dot {
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      /* Mobile menu */
+      #mobileMenu {
+        max-height: 0;
         overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      #mobileMenu.open {
+        max-height: 300px;
       }
     </style>
   </head>
-  <body class="font-sans bg-white dark:bg-primary text-gray-900 dark:text-gray-100">
+  <body class="font-sans bg-white text-gray-900">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 dark:bg-primary/95 backdrop-blur-sm z-50 border-b border-gray-100 dark:border-gray-800">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="flex justify-between h-16">
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm z-50">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex justify-between h-20">
           <div class="flex items-center">
-            <span class="text-xl font-serif font-semibold text-primary dark:text-white">AI Dev Hub</span>
+            <a href="#" class="text-xl font-serif font-semibold text-primary"
+              >Roshin R M</a
+            >
           </div>
-          <div class="hidden md:flex items-center space-x-8">
-            <a href="#home" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Home</a>
-            <a href="#about" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">About</a>
-            <a href="#portfolio" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Portfolio</a>
-            <a href="#blog" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Blog</a>
-            <a href="#contact" class="nav-link text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Contact</a>
-            <button class="rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-4 py-2 text-sm hover:bg-cream dark:hover:bg-gray-800 transition-colors">
-              Login
-            </button>
-            <button class="rounded-full bg-sage text-white px-4 py-2 text-sm hover:bg-sage/90 transition-colors">
-              Sign in
-            </button>
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              href="#about"
+              class="text-sm text-gray-600 hover:text-primary transition-colors"
+              >About</a
+            >
+            <a
+              href="#works"
+              class="text-sm text-gray-600 hover:text-primary transition-colors"
+              >Works</a
+            >
+            <a
+              href="#process"
+              class="text-sm text-gray-600 hover:text-primary transition-colors"
+              >Process</a
+            >
+            <a
+              href="#contact"
+              class="text-sm text-gray-600 hover:text-primary transition-colors"
+              >Contact</a
+            >
+            <a
+              href="roshinsodoo.pdf"
+              download
+              class="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
+            >
+              <i class="ri-download-line"></i>
+              Resume
+            </a>
           </div>
-          <button class="md:hidden text-primary dark:text-white" id="mobileMenuToggle">
+          <button class="md:hidden text-primary" id="mobileMenuToggle">
             <i class="ri-menu-line text-xl"></i>
           </button>
         </div>
       </div>
-      <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-primary border-t border-gray-100 dark:border-gray-800">
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-white border-t border-gray-100"
+      >
         <div class="px-6 py-4 space-y-3">
-          <a href="#home" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Home</a>
-          <a href="#about" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">About</a>
-          <a href="#portfolio" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Portfolio</a>
-          <a href="#blog" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Blog</a>
-          <a href="#contact" class="block py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white text-sm">Contact</a>
+          <a
+            href="#about"
+            class="block py-2 text-gray-600 hover:text-primary text-sm"
+            >About</a
+          >
+          <a
+            href="#works"
+            class="block py-2 text-gray-600 hover:text-primary text-sm"
+            >Works</a
+          >
+          <a
+            href="#process"
+            class="block py-2 text-gray-600 hover:text-primary text-sm"
+            >Process</a
+          >
+          <a
+            href="#contact"
+            class="block py-2 text-gray-600 hover:text-primary text-sm"
+            >Contact</a
+          >
+          <a
+            href="roshinsodoo.pdf"
+            download
+            class="flex items-center justify-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-medium mt-3"
+          >
+            <i class="ri-download-line"></i>
+            Download Resume
+          </a>
         </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 bg-gradient-to-br from-cream to-beige dark:bg-primary">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="max-w-3xl">
-          <p class="text-sm text-sage dark:text-mint mb-4 tracking-wide uppercase font-medium">Welcome to AI Dev Hub</p>
-          <h1 class="text-5xl md:text-6xl font-serif font-semibold text-primary dark:text-white leading-tight mb-6">
-            Explore AI Innovation & Tech Insights
+    <section id="home" class="relative min-h-screen pt-20 overflow-hidden">
+      <!-- Lime gradient background -->
+      <div class="absolute inset-0 lime-gradient-light"></div>
+      <div class="absolute inset-0 hero-gradient"></div>
+
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-12 pt-12 pb-8">
+        <!-- Main Hero Content -->
+        <div class="text-center relative z-10">
+          <h1
+            class="text-5xl md:text-7xl lg:text-8xl font-serif font-medium text-primary mb-2"
+          >
+            Hi I'm Roshin
           </h1>
-          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8 max-w-2xl">
-            Stay updated with the latest AI news, learn from expert tutorials, and discover cutting-edge technologies shaping our future.
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <button data-scroll="blog" class="rounded-full bg-sage text-white px-8 py-3 text-sm font-medium hover:bg-sage/90 transition-colors shadow-md">
-              Explore AI News
-            </button>
-            <button data-scroll="about" class="rounded-full border-2 border-sage text-sage px-8 py-3 text-sm font-medium hover:bg-sage hover:text-white transition-colors">
-              About Me
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
+          <h2
+            class="text-5xl md:text-7xl lg:text-8xl font-display italic text-primary mb-8"
+          >
+            Senior Odoo Developer
+          </h2>
 
-    <!-- About Me Section -->
-    <section id="about" class="py-20 bg-white dark:bg-primary">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">About Me</h2>
-          <div class="section-divider"></div>
-          <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            I'm a passionate developer focused on artificial intelligence and modern web technologies. 
-            I create this space to share knowledge, explore AI innovations, and connect with fellow developers.
-          </p>
-        </div>
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="space-y-6">
-            <h3 class="text-2xl font-serif font-semibold text-primary dark:text-white">My Journey</h3>
-            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-              With a background in software development and a deep interest in AI, I've dedicated myself to 
-              understanding and building intelligent systems. This blog serves as both a learning journal 
-              and a resource for the developer community.
-            </p>
-            <div class="flex flex-wrap gap-3">
-              <span class="px-4 py-2 bg-beige dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">AI/ML Enthusiast</span>
-              <span class="px-4 py-2 bg-beige dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Full Stack Developer</span>
-              <span class="px-4 py-2 bg-beige dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Tech Writer</span>
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="bg-cream dark:bg-gray-900/50 p-6 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div class="text-3xl font-serif font-semibold text-sage mb-2">5+</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
-            </div>
-            <div class="bg-cream dark:bg-gray-900/50 p-6 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div class="text-3xl font-serif font-semibold text-sage mb-2">50+</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Projects Built</div>
-            </div>
-            <div class="bg-cream dark:bg-gray-900/50 p-6 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div class="text-3xl font-serif font-semibold text-sage mb-2">100+</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Articles Written</div>
-            </div>
-            <div class="bg-cream dark:bg-gray-900/50 p-6 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div class="text-3xl font-serif font-semibold text-sage mb-2">10k+</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Community Reach</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          <!-- Hero Image -->
+          <div class="relative flex justify-center mt-[-20px]">
+            <div class="relative">
+              <!-- Profile Image -->
+              <div
+                class="w-80 h-96 md:w-96 md:h-[450px] rounded-t-full overflow-hidden mx-auto relative"
+              >
+                <img
+                  src="src/img/1773938625031.png"
+                  alt="Roshin R M"
+                  class="w-full h-full object-cover object-top scale-[0.92]"
+                />
+              </div>
 
-    <!-- Skills Section -->
-    <section id="portfolio" class="py-20 bg-gradient-to-br from-beige to-cream dark:bg-gray-900/50">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">Skills & Technologies</h2>
-          <div class="section-divider"></div>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-white dark:bg-primary p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center mb-4">
-              <i class="ri-brain-line text-2xl text-sage"></i>
-            </div>
-            <h3 class="font-semibold text-primary dark:text-white mb-2">AI & Machine Learning</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">TensorFlow, PyTorch, Scikit-learn</p>
-          </div>
-          <div class="bg-white dark:bg-primary p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center mb-4">
-              <i class="ri-openai-line text-2xl text-sage"></i>
-            </div>
-            <h3 class="font-semibold text-primary dark:text-white mb-2">LLMs & GPT</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">OpenAI API, LangChain, Prompt Engineering</p>
-          </div>
-          <div class="bg-white dark:bg-primary p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center mb-4">
-              <i class="ri-code-box-line text-2xl text-sage"></i>
-            </div>
-            <h3 class="font-semibold text-primary dark:text-white mb-2">Web Development</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">React, Node.js, Python, JavaScript</p>
-          </div>
-          <div class="bg-white dark:bg-primary p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center mb-4">
-              <i class="ri-database-2-line text-2xl text-sage"></i>
-            </div>
-            <h3 class="font-semibold text-primary dark:text-white mb-2">Data & Cloud</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">SQL, MongoDB, AWS, Vector DBs</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- AI News Blog Section -->
-    <section id="blog" class="py-20 bg-white dark:bg-primary">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">Latest AI News</h2>
-          <div class="section-divider"></div>
-          <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
-            Stay updated with the latest developments in artificial intelligence from trusted sources
-          </p>
-          <div id="lastUpdated" class="text-xs text-gray-400 dark:text-gray-500"></div>
-        </div>
+              <!-- Availability Badge -->
+              <div class="absolute left-0 top-1/4 -translate-x-1/2 z-10">
+                <div
+                  class="bg-white rounded-full px-5 py-3 shadow-lg flex items-center gap-2"
+                >
+                  <span
+                    class="w-2 h-2 bg-green-500 rounded-full pulse-dot"
+                  ></span>
+                  <span class="text-sm font-medium text-primary"
+                    >Available for new opportunities</span
+                  >
+                </div>
+              </div>
 
-        <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-3 mb-8">
-          <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-sage text-white hover:bg-sage/90 transition-colors" data-category="all">
-            All News
-          </button>
-          <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="llm">
-            LLMs
-          </button>
-          <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="ml">
-            Machine Learning
-          </button>
-          <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="vision">
-            Computer Vision
-          </button>
-          <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-sage hover:text-white transition-colors" data-category="ethics">
-            AI Ethics
-          </button>
-        </div>
-
-        <!-- Search Bar -->
-        <div class="max-w-2xl mx-auto mb-12">
-          <div class="relative">
-            <input 
-              type="text" 
-              id="searchInput" 
-              placeholder="Search AI news..." 
-              class="w-full px-5 py-3 pr-12 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/50 text-primary dark:text-white placeholder-gray-400 focus:outline-none focus:border-sage dark:focus:border-sage text-sm"
-            />
-            <i class="ri-search-line absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
-          </div>
-        </div>
-
-        <!-- Loading State -->
-        <div id="loadingState" class="text-center py-12">
-          <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-gray-200 border-t-sage"></div>
-          <p class="text-gray-600 dark:text-gray-400 mt-4">Loading latest AI news...</p>
-        </div>
-
-        <!-- Error State -->
-        <div id="errorState" class="hidden text-center py-12">
-          <div class="w-16 h-16 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="ri-error-warning-line text-2xl text-red-600 dark:text-red-400"></i>
-          </div>
-          <p class="text-gray-600 dark:text-gray-400 mb-4">Unable to load news. Please try again later.</p>
-          <button data-action="retry" class="px-6 py-2 bg-sage text-white rounded-full text-sm hover:bg-sage/90">
-            Retry
-          </button>
-        </div>
-
-        <!-- News Grid -->
-        <div id="newsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
-          <!-- News cards will be inserted here by JavaScript -->
-        </div>
-
-        <!-- Load More Button -->
-        <div id="loadMoreContainer" class="text-center mt-12 hidden">
-          <button data-action="load-more" class="rounded-full border-2 border-sage text-sage px-8 py-3 text-sm font-medium hover:bg-sage hover:text-white transition-colors">
-            Load More Articles
-          </button>
-        </div>
-      </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gradient-to-br from-beige to-cream dark:bg-gray-900/50">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif font-semibold text-primary dark:text-white mb-4">Get In Touch</h2>
-          <div class="section-divider"></div>
-          <p class="text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
-            Have questions or want to collaborate? I'd love to hear from you!
-          </p>
-        </div>
-        <div class="grid md:grid-cols-3 gap-6">
-          <a href="https://github.com" target="_blank" class="bg-white dark:bg-primary p-8 rounded-2xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow group">
-            <div class="w-16 h-16 bg-sage/10 rounded-full flex items-center justify-center mb-5 mx-auto group-hover:bg-sage/20 transition-colors">
-              <i class="ri-github-line text-3xl text-sage"></i>
-            </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">GitHub</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Check out my open source projects</p>
-          </a>
-          <a href="https://linkedin.com" target="_blank" class="bg-white dark:bg-primary p-8 rounded-2xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow group">
-            <div class="w-16 h-16 bg-sage/10 rounded-full flex items-center justify-center mb-5 mx-auto group-hover:bg-sage/20 transition-colors">
-              <i class="ri-linkedin-line text-3xl text-sage"></i>
-            </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">LinkedIn</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Connect professionally</p>
-          </a>
-          <a href="mailto:hello@example.com" class="bg-white dark:bg-primary p-8 rounded-2xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow group">
-            <div class="w-16 h-16 bg-sage/10 rounded-full flex items-center justify-center mb-5 mx-auto group-hover:bg-sage/20 transition-colors">
-              <i class="ri-mail-line text-3xl text-sage"></i>
-            </div>
-            <h3 class="font-serif font-semibold text-primary dark:text-white mb-2">Email</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Send me a message</p>
-          </a>
-        </div>
-      </div>
-    </section>
-    <!-- Footer -->
-    <footer class="bg-primary text-white py-16">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
-          <div>
-            <h3 class="font-serif font-semibold text-lg mb-4">AI Dev Hub</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">
-              Your source for AI news, tutorials, and insights.
-            </p>
-          </div>
-          <div>
-            <h4 class="font-medium text-sm mb-4 text-gray-300">Navigation</h4>
-            <ul class="space-y-2 text-sm">
-              <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-              <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-              <li><a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
-              <li><a href="#blog" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-medium text-sm mb-4 text-gray-300">Topics</h4>
-            <ul class="space-y-2 text-sm">
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Machine Learning</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">LLMs & ChatGPT</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Computer Vision</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">AI Ethics</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-medium text-sm mb-4 text-gray-300">Connect</h4>
-            <div class="flex space-x-3">
-              <a href="#" class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-sage transition-colors">
-                <i class="ri-github-line text-sm"></i>
-              </a>
-              <a href="#" class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-sage transition-colors">
-                <i class="ri-linkedin-line text-sm"></i>
-              </a>
-              <a href="#" class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-sage transition-colors">
-                <i class="ri-mail-line text-sm"></i>
-              </a>
+              <!-- Tagline Badge -->
+              <div class="absolute right-0 top-1/2 translate-x-1/2">
+                <div class="max-w-[200px] text-right">
+                  <p class="text-sm text-gray-600 leading-relaxed">
+                    passionate about designing robust ERP solutions and building
+                    intelligent systems.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p class="text-gray-500 text-sm">© 2025 AI Dev Hub. All news sourced from respective publishers.</p>
-        </div>
-      </div>
-    </footer>
 
-    <!-- Dark Mode Toggle -->
-    <button id="darkModeToggle" class="fixed bottom-20 right-6 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 w-10 h-10 flex items-center justify-center shadow-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-      <i class="ri-sun-line text-lg"></i>
-    </button>
-
-    <!-- Back to Top -->
-    <button id="backToTop" class="fixed bottom-6 right-6 bg-primary dark:bg-white text-white dark:text-primary w-10 h-10 flex items-center justify-center shadow-md opacity-0 transition-opacity hover:bg-gray-800 dark:hover:bg-gray-100">
-      <i class="ri-arrow-up-line text-lg"></i>
-    </button>
-
-    <!-- Article Modal -->
-    <div id="articleModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
-      <div class="bg-white dark:bg-primary max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border border-gray-200 dark:border-gray-800 shadow-2xl" id="modalContent">
-        <div class="p-8">
-          <div class="flex justify-between items-start mb-6">
-            <div class="flex-1 pr-4">
-              <h2 class="text-2xl font-serif font-semibold text-primary dark:text-white mb-2" id="modalTitle"></h2>
-              <div id="modalMeta" class="text-sm text-gray-500 dark:text-gray-400"></div>
+          <!-- Stats & CTA Row -->
+          <div class="flex flex-wrap justify-between items-end mt-8 gap-6">
+            <!-- Trusted By -->
+            <div class="flex items-center gap-3">
+              <div class="flex -space-x-2">
+                <!-- Avatar 1 -->
+                <div
+                  class="w-10 h-10 rounded-full border-2 border-white overflow-hidden shadow-sm"
+                >
+                  <svg viewBox="0 0 40 40" class="w-full h-full">
+                    <rect width="40" height="40" fill="#3b82f6" />
+                    <text
+                      x="20"
+                      y="26"
+                      font-size="14"
+                      fill="white"
+                      text-anchor="middle"
+                      font-family="Inter, sans-serif"
+                      font-weight="500"
+                    >
+                      JD
+                    </text>
+                  </svg>
+                </div>
+                <!-- Avatar 2 -->
+                <div
+                  class="w-10 h-10 rounded-full border-2 border-white overflow-hidden shadow-sm"
+                >
+                  <svg viewBox="0 0 40 40" class="w-full h-full">
+                    <rect width="40" height="40" fill="#8b5cf6" />
+                    <text
+                      x="20"
+                      y="26"
+                      font-size="14"
+                      fill="white"
+                      text-anchor="middle"
+                      font-family="Inter, sans-serif"
+                      font-weight="500"
+                    >
+                      AK
+                    </text>
+                  </svg>
+                </div>
+                <!-- Avatar 3 -->
+                <div
+                  class="w-10 h-10 rounded-full border-2 border-white overflow-hidden shadow-sm"
+                >
+                  <svg viewBox="0 0 40 40" class="w-full h-full">
+                    <rect width="40" height="40" fill="#10b981" />
+                    <text
+                      x="20"
+                      y="26"
+                      font-size="14"
+                      fill="white"
+                      text-anchor="middle"
+                      font-family="Inter, sans-serif"
+                      font-weight="500"
+                    >
+                      MS
+                    </text>
+                  </svg>
+                </div>
+              </div>
+              <div class="text-left">
+                <p class="text-sm text-gray-600">
+                  Trusted by over
+                  <span class="font-semibold text-primary">50+ happy</span>
+                </p>
+                <p class="text-sm">
+                  <span class="font-semibold text-primary">clients</span> across
+                  startups and enterprises.
+                </p>
+              </div>
             </div>
-            <button id="modalCloseBtn" class="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors flex-shrink-0">
-              <i class="ri-close-line text-xl"></i>
-            </button>
-          </div>
-          <div id="modalImage" class="mb-6"></div>
-          <div id="modalContentText" class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-300"></div>
-          <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
-            <a id="modalLink" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-sage text-white px-6 py-3 text-sm font-medium hover:bg-sage/90 transition-colors">
-              Read Full Article <i class="ri-external-link-line"></i>
+
+            <!-- CTA Button -->
+            <a
+              href="#contact"
+              class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-medium hover:bg-gray-800 transition-colors"
+            >
+              <i class="ri-arrow-right-line"></i>
+              Get in Touch
             </a>
           </div>
         </div>
       </div>
-    </div>
-    <script>
-      // Dark Mode Toggle
-      const darkModeToggle = document.getElementById("darkModeToggle");
-      const darkModeIcon = darkModeToggle.querySelector("i");
-      
-      function toggleDarkMode() {
-        document.documentElement.classList.toggle("dark");
-        const isDark = document.documentElement.classList.contains("dark");
-        darkModeIcon.className = isDark ? "ri-moon-line text-lg" : "ri-sun-line text-lg";
-        localStorage.setItem("darkMode", isDark ? "dark" : "light");
-      }
-      
-      darkModeToggle.addEventListener("click", toggleDarkMode);
-      
-      // Initialize dark mode from localStorage
-      if (localStorage.getItem("darkMode") === "dark") {
-        document.documentElement.classList.add("dark");
-        darkModeIcon.className = "ri-moon-line text-lg";
-      }
 
-      // Back to Top Button
-      const backToTop = document.getElementById("backToTop");
-      window.addEventListener("scroll", () => {
-        backToTop.style.opacity = window.pageYOffset > 300 ? "1" : "0";
-      });
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+      <!-- Company Logos Marquee -->
+      <div class="border-t border-gray-200/50 py-6 mt-8">
+        <div class="marquee">
+          <div class="marquee-content">
+            <span class="text-gray-400 font-medium flex items-center gap-2"
+              ><i class="ri-building-line"></i> ULTS</span
+            >
+            <span class="text-gray-400 font-medium flex items-center gap-2"
+              ><i class="ri-government-line"></i> ConsumerFed</span
+            >
+            <span class="text-gray-400 font-medium flex items-center gap-2"
+              ><i class="ri-hospital-line"></i> HIMs</span
+            >
+            <span class="text-gray-400 font-medium flex items-center gap-2"
+              ><i class="ri-code-s-slash-line"></i> Febno Tech</span
+            >
+            <span class="text-gray-400 font-medium flex items-center gap-2"
+              ><i class="ri-home-4-line"></i> Aqary CRM</span
+            >
+            <span class="text-gray-400 font-medium flex items-center gap-2"
+              ><i class="ri-truck-line"></i> Courier UAE</span
+            >
+          </div>
+          <div class="marquee-content" aria-hidden="true">
+            <span class="text-gray-400 font-medium flex items-center gap-2"
+              ><i class="ri-building-line"></i> ULTS</span
+            >
+            <span class="text-gray-400 font-medium flex items-center gap-2"
+              ><i class="ri-government-line"></i> ConsumerFed</span
+            >
+            <span class="text-gray-400 font-medium flex items-center gap-2"
+              ><i class="ri-hospital-line"></i> HIMs</span
+            >
+            <span class="text-gray-400 font-medium flex items-center gap-2"
+              ><i class="ri-code-s-slash-line"></i> Febno Tech</span
+            >
+            <span class="text-gray-400 font-medium flex items-center gap-2"
+              ><i class="ri-home-4-line"></i> Aqary CRM</span
+            >
+            <span class="text-gray-400 font-medium flex items-center gap-2"
+              ><i class="ri-truck-line"></i> Courier UAE</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Works Preview -->
+    <section class="py-20 lime-gradient">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="text-center mb-12">
+          <p class="font-display italic text-lg text-primary/70 mb-2">
+            Seen Recent Works
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Project 1 -->
+          <div class="bg-white rounded-3xl p-4 project-card">
+            <div class="aspect-video rounded-2xl overflow-hidden">
+              <img
+                src="src/img/project-consumerfed.svg"
+                alt="ConsumerFed ERP"
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="bg-white rounded-3xl p-4 project-card">
+            <div class="aspect-video rounded-2xl overflow-hidden">
+              <img
+                src="src/img/project-hims.svg"
+                alt="Hospital Management System"
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="bg-white rounded-3xl p-4 project-card">
+            <div class="aspect-video rounded-2xl overflow-hidden">
+              <img
+                src="src/img/project-aqary.svg"
+                alt="Aqary Real Estate CRM"
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="bg-white rounded-3xl p-4 project-card">
+            <div class="aspect-video rounded-2xl overflow-hidden">
+              <img
+                src="src/img/project-pension.svg"
+                alt="Pension Board Portal"
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Focus Section -->
+    <section class="py-24 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="relative">
+          <!-- Floating Skill Tags - Left -->
+          <div class="absolute left-0 top-0 hidden lg:flex flex-col gap-4">
+            <div class="skill-tag floating">
+              <span class="skill-icon bg-pink-500 text-white"
+                ><i class="ri-arrow-up-line text-sm"></i
+              ></span>
+              Python & Django
+            </div>
+            <div class="skill-tag floating floating-delay-1 ml-8">
+              <span class="skill-icon bg-blue-500 text-white"
+                ><i class="ri-arrow-up-line text-sm"></i
+              ></span>
+              Odoo Framework
+            </div>
+            <div class="skill-tag floating floating-delay-2">
+              <span class="skill-icon bg-green-500 text-white"
+                ><i class="ri-arrow-up-line text-sm"></i
+              ></span>
+              PostgreSQL
+            </div>
+          </div>
+
+          <!-- Floating Skill Tags - Right -->
+          <div
+            class="absolute right-0 top-0 hidden lg:flex flex-col gap-4 items-end"
+          >
+            <div class="skill-tag floating">
+              <span class="skill-icon bg-purple-500 text-white"
+                ><i class="ri-arrow-up-line text-sm"></i
+              ></span>
+              ERP Solutions
+            </div>
+            <div class="skill-tag floating floating-delay-1 mr-8">
+              <span class="skill-icon bg-orange-500 text-white"
+                ><i class="ri-arrow-up-line text-sm"></i
+              ></span>
+              REST API
+            </div>
+            <div class="skill-tag floating floating-delay-2">
+              <span class="skill-icon bg-teal-500 text-white"
+                ><i class="ri-arrow-up-line text-sm"></i
+              ></span>
+              GitLab CI/CD
+            </div>
+          </div>
+
+          <!-- Center Content -->
+          <div class="text-center max-w-3xl mx-auto">
+            <p class="font-display italic text-2xl text-gray-400 mb-6">
+              Hallo!
+            </p>
+            <p
+              class="text-2xl md:text-3xl lg:text-4xl text-primary leading-relaxed"
+            >
+              focus is on designing robust ERP solutions, building custom
+              modules, and
+              <span class="text-gray-400"
+                >integrating systems that solve real business problems</span
+              >
+            </p>
+          </div>
+
+          <!-- Mobile Skill Tags -->
+          <div class="flex flex-wrap justify-center gap-3 mt-12 lg:hidden">
+            <div class="skill-tag">
+              <span class="skill-icon bg-pink-500 text-white"
+                ><i class="ri-arrow-up-line text-xs"></i
+              ></span>
+              Python & Django
+            </div>
+            <div class="skill-tag">
+              <span class="skill-icon bg-blue-500 text-white"
+                ><i class="ri-arrow-up-line text-xs"></i
+              ></span>
+              Odoo Framework
+            </div>
+            <div class="skill-tag">
+              <span class="skill-icon bg-green-500 text-white"
+                ><i class="ri-arrow-up-line text-xs"></i
+              ></span>
+              PostgreSQL
+            </div>
+            <div class="skill-tag">
+              <span class="skill-icon bg-purple-500 text-white"
+                ><i class="ri-arrow-up-line text-xs"></i
+              ></span>
+              ERP Solutions
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-6 lg:px-12">
+        <div class="text-center mb-16">
+          <p class="font-display italic text-lg text-gray-400 mb-2">
+            /My Process Explained
+          </p>
+          <h2 class="text-4xl md:text-5xl font-serif font-medium text-primary">
+            Here's how it works
+          </h2>
+        </div>
+
+        <!-- Process Cards -->
+        <div class="relative">
+          <!-- Connector Line (Desktop) -->
+          <svg
+            class="absolute top-24 left-1/4 w-1/2 h-20 hidden md:block"
+            viewBox="0 0 400 80"
+            fill="none"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0 60 Q100 0 200 40 Q300 80 400 20"
+              stroke="url(#lime-gradient)"
+              stroke-width="2"
+              fill="none"
+            />
+            <defs>
+              <linearGradient
+                id="lime-gradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
+                <stop offset="0%" style="stop-color: #c6f84d" />
+                <stop offset="100%" style="stop-color: #9dfc5a" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Step 1 -->
+            <div class="relative">
+              <div
+                class="bg-white rounded-3xl p-8 card-glow border border-gray-100"
+              >
+                <span class="text-6xl font-serif text-gray-200 mb-4 block"
+                  >01</span
+                >
+                <h3 class="text-2xl font-serif font-medium text-primary mb-3">
+                  Analyze
+                </h3>
+                <p class="text-gray-500 leading-relaxed">
+                  Understanding your business requirements and existing
+                  workflows through detailed analysis.
+                </p>
+              </div>
+              <!-- Connector dot -->
+              <div
+                class="absolute -top-2 left-1/2 w-4 h-4 bg-lime rounded-full border-4 border-white hidden md:block"
+              ></div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="relative md:mt-16">
+              <div
+                class="bg-white rounded-3xl p-8 card-glow border border-gray-100"
+              >
+                <span class="text-6xl font-serif text-gray-200 mb-4 block"
+                  >02</span
+                >
+                <h3 class="text-2xl font-serif font-medium text-primary mb-3">
+                  Develop
+                </h3>
+                <p class="text-gray-500 leading-relaxed">
+                  Building custom Odoo modules, APIs, and integrations tailored
+                  to your specific needs.
+                </p>
+              </div>
+              <div
+                class="absolute -top-2 left-1/2 w-4 h-4 bg-lime rounded-full border-4 border-white hidden md:block"
+              ></div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="relative">
+              <div
+                class="bg-white rounded-3xl p-8 card-glow border border-gray-100"
+              >
+                <span class="text-6xl font-serif text-gray-200 mb-4 block"
+                  >03</span
+                >
+                <h3 class="text-2xl font-serif font-medium text-primary mb-3">
+                  Deploy
+                </h3>
+                <p class="text-gray-500 leading-relaxed">
+                  Testing, deploying, and maintaining ERP solutions with CI/CD
+                  best practices.
+                </p>
+              </div>
+              <div
+                class="absolute -top-2 left-1/2 w-4 h-4 bg-lime rounded-full border-4 border-white hidden md:block"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6 lg:px-12">
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Testimonial 1 -->
+          <div class="relative">
+            <div class="quote-mark absolute -top-8 left-0">"</div>
+            <p class="text-lg text-gray-600 leading-relaxed mb-6 relative z-10">
+              Working with Roshin was seamless from start to finish. He
+              understood our goals quickly, asked the right questions, and
+              delivered a system that scaled perfectly with our growing app.
+            </p>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden shadow-md">
+                <svg viewBox="0 0 48 48" class="w-full h-full">
+                  <rect width="48" height="48" fill="#1e40af" />
+                  <text
+                    x="24"
+                    y="30"
+                    font-size="16"
+                    fill="white"
+                    text-anchor="middle"
+                    font-family="Inter, sans-serif"
+                    font-weight="600"
+                  >
+                    DR
+                  </text>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-primary">Daniel Reed</p>
+                <p class="text-sm text-gray-500">Founder of NovaLabs</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="relative md:mt-24">
+            <div class="quote-mark absolute -top-8 left-0">"</div>
+            <p class="text-lg text-gray-600 leading-relaxed mb-6 relative z-10">
+              Roshin brought our product vision to life with incredible
+              attention to detail. His ability to balance business needs with
+              user empathy made our platform not just beautiful — but genuinely
+              useful.
+            </p>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden shadow-md">
+                <svg viewBox="0 0 48 48" class="w-full h-full">
+                  <rect width="48" height="48" fill="#7c3aed" />
+                  <text
+                    x="24"
+                    y="30"
+                    font-size="16"
+                    fill="white"
+                    text-anchor="middle"
+                    font-family="Inter, sans-serif"
+                    font-weight="600"
+                  >
+                    SN
+                  </text>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-primary">Sarah Navarro</p>
+                <p class="text-sm text-gray-500">Product Manager at FlowSync</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Works Section -->
+    <section id="works" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="text-center mb-16">
+          <p class="font-display italic text-lg text-gray-400 mb-2">
+            /Best Projects
+          </p>
+          <h2 class="text-4xl md:text-5xl font-serif font-medium text-primary">
+            Selected Works
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Project 1: ConsumerFed ERP -->
+          <div class="group">
+            <div class="bg-gray-100 rounded-3xl p-6 mb-4 overflow-hidden">
+              <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src="src/img/project-consumerfed.svg"
+                  alt="ConsumerFed ERP"
+                  class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold text-primary">
+                ConsumerFed ERP
+              </h3>
+              <div class="flex gap-2">
+                <span
+                  class="px-3 py-1 bg-gray-100 rounded-full text-xs text-gray-600"
+                  >Government</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 rounded-full text-xs text-gray-600"
+                  >Odoo</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Hospital Management System -->
+          <div class="group">
+            <div class="bg-gray-100 rounded-3xl p-6 mb-4 overflow-hidden">
+              <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src="src/img/project-hims.svg"
+                  alt="Hospital Management System"
+                  class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold text-primary">
+                Hospital Management (HIMs)
+              </h3>
+              <div class="flex gap-2">
+                <span
+                  class="px-3 py-1 bg-gray-100 rounded-full text-xs text-gray-600"
+                  >Healthcare</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 rounded-full text-xs text-gray-600"
+                  >API</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Aqary CRM -->
+          <div class="group">
+            <div class="bg-gray-100 rounded-3xl p-6 mb-4 overflow-hidden">
+              <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src="src/img/project-aqary.svg"
+                  alt="Aqary Real Estate CRM"
+                  class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold text-primary">
+                Aqary Real Estate CRM
+              </h3>
+              <div class="flex gap-2">
+                <span
+                  class="px-3 py-1 bg-gray-100 rounded-full text-xs text-gray-600"
+                  >Real Estate</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 rounded-full text-xs text-gray-600"
+                  >CRM</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Pension Board Portal -->
+          <div class="group">
+            <div class="bg-gray-100 rounded-3xl p-6 mb-4 overflow-hidden">
+              <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src="src/img/project-pension.svg"
+                  alt="Pension Board Portal"
+                  class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold text-primary">
+                Pension Board Portal
+              </h3>
+              <div class="flex gap-2">
+                <span
+                  class="px-3 py-1 bg-gray-100 rounded-full text-xs text-gray-600"
+                  >Government</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 rounded-full text-xs text-gray-600"
+                  >Portal</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About/Bio Section -->
+    <section id="about" class="py-24 bg-white border-t border-gray-100">
+      <div class="max-w-6xl mx-auto px-6 lg:px-12">
+        <div class="text-center mb-16">
+          <p class="font-display italic text-lg text-gray-400 mb-2">
+            /Who Am I
+          </p>
+          <h2 class="text-4xl md:text-5xl font-serif font-medium text-primary">
+            Pushing Boundaries <span class="text-lime-dark">since 2020</span>
+          </h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+          <!-- Left: Photo & Social -->
+          <div>
+            <div class="bg-lime rounded-3xl overflow-hidden mb-6">
+              <img
+                src="src/img/1773938625031.png"
+                alt="Roshin R M"
+                class="w-full aspect-square object-cover object-top"
+              />
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex gap-3">
+                <a
+                  href="https://github.com/roshinrm"
+                  target="_blank"
+                  class="w-10 h-10 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+                >
+                  <i class="ri-github-line text-lg"></i>
+                </a>
+                <a
+                  href="https://linkedin.com/in/roshin-r-m-8b3228165"
+                  target="_blank"
+                  class="w-10 h-10 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+                >
+                  <i class="ri-linkedin-line text-lg"></i>
+                </a>
+                <a
+                  href="mailto:roshin011235@gmail.com"
+                  class="w-10 h-10 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+                >
+                  <i class="ri-mail-line text-lg"></i>
+                </a>
+              </div>
+              <div class="text-right">
+                <p class="font-semibold text-primary">Roshin R M</p>
+                <p class="text-sm text-gray-500">Senior Odoo Developer</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Bio & Work History -->
+          <div>
+            <p class="text-lg text-gray-600 leading-relaxed mb-10">
+              Highly skilled Odoo Developer with 4+ years of experience in
+              designing and implementing robust ERP solutions. Proficient in API
+              development, custom module creation, and system integrations, with
+              proven expertise in projects spanning real estate, courier
+              management, hospital systems, and government ERP implementations.
+            </p>
+
+            <!-- Work History Table -->
+            <div class="space-y-0">
+              <div
+                class="flex items-center justify-between py-4 border-t border-gray-200"
+              >
+                <div class="flex-1">
+                  <p class="font-medium text-primary">Senior Developer</p>
+                </div>
+                <div class="flex-1 text-center">
+                  <p class="text-sm text-gray-500">ULTS</p>
+                </div>
+                <div class="flex-1 text-right">
+                  <p class="text-sm text-gray-500">2025 → Now</p>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between py-4 border-t border-gray-200"
+              >
+                <div class="flex-1">
+                  <p class="font-medium text-primary">Developer Analyst</p>
+                </div>
+                <div class="flex-1 text-center">
+                  <p class="text-sm text-gray-500">ULTS</p>
+                </div>
+                <div class="flex-1 text-right">
+                  <p class="text-sm text-gray-500">2022 → 2025</p>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between py-4 border-t border-gray-200"
+              >
+                <div class="flex-1">
+                  <p class="font-medium text-primary">Python Odoo Developer</p>
+                </div>
+                <div class="flex-1 text-center">
+                  <p class="text-sm text-gray-500">Febno Technologies</p>
+                </div>
+                <div class="flex-1 text-right">
+                  <p class="text-sm text-gray-500">2020 → 2022</p>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between py-4 border-t border-b border-gray-200"
+              >
+                <div class="flex-1">
+                  <p class="font-medium text-primary">Python Django Training</p>
+                </div>
+                <div class="flex-1 text-center">
+                  <p class="text-sm text-gray-500">IPSR Solutions</p>
+                </div>
+                <div class="flex-1 text-right">
+                  <p class="text-sm text-gray-500">2019 → 2020</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Footer Section -->
+    <section id="contact" class="relative">
+      <!-- CTA Banner -->
+      <div class="lime-gradient py-24">
+        <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center">
+          <h2
+            class="text-4xl md:text-6xl lg:text-7xl font-display italic text-primary mb-6"
+          >
+            Let's Make It Happen
+          </h2>
+          <p class="text-lg text-primary/70 mb-10 max-w-2xl mx-auto">
+            always open to new opportunities, collaborations, and creative
+            challenges. Let's work together to bring your ideas to life
+          </p>
+          <a
+            href="mailto:roshin011235@gmail.com"
+            class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-medium hover:bg-gray-800 transition-colors"
+          >
+            <i class="ri-arrow-right-line"></i>
+            Get In Touch
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="bg-primary text-white py-12">
+        <div class="max-w-6xl mx-auto px-6 lg:px-12">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center gap-6"
+          >
+            <div>
+              <p class="font-serif text-lg">Roshin R M</p>
+              <p class="text-gray-400 text-sm">
+                Senior Odoo Developer & ERP Specialist
+              </p>
+            </div>
+            <div class="flex gap-4">
+              <a
+                href="https://github.com/roshinrm"
+                target="_blank"
+                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-lime hover:text-primary transition-colors"
+              >
+                <i class="ri-github-line"></i>
+              </a>
+              <a
+                href="https://linkedin.com/in/roshin-r-m-8b3228165"
+                target="_blank"
+                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-lime hover:text-primary transition-colors"
+              >
+                <i class="ri-linkedin-line"></i>
+              </a>
+              <a
+                href="mailto:roshin011235@gmail.com"
+                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-lime hover:text-primary transition-colors"
+              >
+                <i class="ri-mail-line"></i>
+              </a>
+            </div>
+          </div>
+          <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+            <p class="text-gray-500 text-sm">
+              © 2026 Roshin R M. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      mobileMenuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+        const icon = mobileMenuToggle.querySelector("i");
+        icon.className = mobileMenu.classList.contains("open")
+          ? "ri-close-line text-xl"
+          : "ri-menu-line text-xl";
       });
 
       // Smooth Scroll for Anchor Links
@@ -490,11 +1201,42 @@
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
           const target = document.querySelector(this.getAttribute("href"));
-          if (target) target.scrollIntoView({ behavior: "smooth" });
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+            // Close mobile menu if open
+            mobileMenu.classList.remove("open");
+            mobileMenuToggle.querySelector("i").className =
+              "ri-menu-line text-xl";
+          }
         });
       });
+
+      // Intersection Observer for fade-in animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Apply to sections
+      document.querySelectorAll("section").forEach((section) => {
+        section.style.opacity = "0";
+        section.style.transform = "translateY(20px)";
+        section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(section);
+      });
+
+      // Hero section should be visible immediately
+      document.getElementById("home").style.opacity = "1";
+      document.getElementById("home").style.transform = "translateY(0)";
     </script>
-    <!-- Load news fetcher module -->
-    <script src="src/js/news-fetcher.js"></script>
   </body>
 </html>

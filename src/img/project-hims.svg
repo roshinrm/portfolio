@@ -1,0 +1,73 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="himsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#himsBg)"/>
+  
+  <!-- Dashboard mockup -->
+  <rect x="50" y="40" width="700" height="370" rx="12" fill="#fff" opacity="0.95"/>
+  
+  <!-- Header -->
+  <rect x="50" y="40" width="700" height="60" rx="12" fill="#1e40af"/>
+  <text x="100" y="78" font-size="20" fill="white" font-family="Inter, sans-serif" font-weight="700">HIMs</text>
+  <text x="160" y="78" font-size="14" fill="#93c5fd" font-family="Inter, sans-serif">Hospital Information Management</text>
+  
+  <!-- Sidebar -->
+  <rect x="50" y="100" width="160" height="310" fill="#f8fafc"/>
+  
+  <!-- Menu icons/items -->
+  <rect x="65" y="120" width="130" height="35" rx="6" fill="#dbeafe"/>
+  <text x="130" y="143" font-size="11" fill="#1e40af" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500">Doctor Workbench</text>
+  
+  <text x="130" y="183" font-size="11" fill="#64748b" text-anchor="middle" font-family="Inter, sans-serif">Pharmacy</text>
+  <text x="130" y="218" font-size="11" fill="#64748b" text-anchor="middle" font-family="Inter, sans-serif">Emergency</text>
+  <text x="130" y="253" font-size="11" fill="#64748b" text-anchor="middle" font-family="Inter, sans-serif">Lab Results</text>
+  <text x="130" y="288" font-size="11" fill="#64748b" text-anchor="middle" font-family="Inter, sans-serif">Appointments</text>
+  <text x="130" y="323" font-size="11" fill="#64748b" text-anchor="middle" font-family="Inter, sans-serif">Patients</text>
+  
+  <!-- Main content -->
+  <!-- Patient card -->
+  <rect x="230" y="120" width="250" height="120" rx="10" fill="#f1f5f9"/>
+  <circle cx="280" cy="160" r="25" fill="#1e40af"/>
+  <text x="280" y="166" font-size="14" fill="white" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600">PK</text>
+  <text x="320" y="150" font-size="14" fill="#1e293b" font-family="Inter, sans-serif" font-weight="600">Patient: Priya Kumar</text>
+  <text x="320" y="170" font-size="11" fill="#64748b" font-family="Inter, sans-serif">ID: HIM-2024-0892</text>
+  <text x="320" y="190" font-size="11" fill="#64748b" font-family="Inter, sans-serif">Ward: General - Bed 14</text>
+  <rect x="320" y="205" width="60" height="22" rx="4" fill="#dcfce7"/>
+  <text x="350" y="220" font-size="10" fill="#166534" text-anchor="middle" font-family="Inter, sans-serif">Stable</text>
+  
+  <!-- Stats -->
+  <rect x="500" y="120" width="100" height="55" rx="8" fill="#dbeafe"/>
+  <text x="550" y="148" font-size="20" fill="#1e40af" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700">248</text>
+  <text x="550" y="165" font-size="9" fill="#64748b" text-anchor="middle" font-family="Inter, sans-serif">In-Patients</text>
+  
+  <rect x="620" y="120" width="100" height="55" rx="8" fill="#fef3c7"/>
+  <text x="670" y="148" font-size="20" fill="#b45309" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700">12</text>
+  <text x="670" y="165" font-size="9" fill="#64748b" text-anchor="middle" font-family="Inter, sans-serif">Emergency</text>
+  
+  <rect x="500" y="185" width="100" height="55" rx="8" fill="#d1fae5"/>
+  <text x="550" y="213" font-size="20" fill="#047857" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700">6</text>
+  <text x="550" y="230" font-size="9" fill="#64748b" text-anchor="middle" font-family="Inter, sans-serif">Mobile Apps</text>
+  
+  <rect x="620" y="185" width="100" height="55" rx="8" fill="#ede9fe"/>
+  <text x="670" y="213" font-size="20" fill="#6d28d9" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700">15</text>
+  <text x="670" y="230" font-size="9" fill="#64748b" text-anchor="middle" font-family="Inter, sans-serif">Lab Machines</text>
+  
+  <!-- Appointments table -->
+  <rect x="230" y="260" width="490" height="140" rx="10" fill="#f8fafc"/>
+  <text x="250" y="285" font-size="12" fill="#1e293b" font-family="Inter, sans-serif" font-weight="600">Today's Appointments</text>
+  
+  <rect x="245" y="300" width="460" height="30" rx="4" fill="#fff"/>
+  <text x="260" y="320" font-size="10" fill="#374151" font-family="Inter, sans-serif">09:00 - Dr. Sharma - General Checkup</text>
+  
+  <rect x="245" y="335" width="460" height="30" rx="4" fill="#fff"/>
+  <text x="260" y="355" font-size="10" fill="#374151" font-family="Inter, sans-serif">10:30 - Dr. Patel - Follow-up</text>
+  
+  <rect x="245" y="370" width="460" height="30" rx="4" fill="#fff"/>
+  <text x="260" y="390" font-size="10" fill="#374151" font-family="Inter, sans-serif">14:00 - Dr. Reddy - Lab Results Review</text>
+</svg>
