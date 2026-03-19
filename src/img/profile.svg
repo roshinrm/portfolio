@@ -1,0 +1,93 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4f879"/>
+      <stop offset="100%" style="stop-color:#c6f84d"/>
+    </linearGradient>
+    <linearGradient id="archGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9dfc5a"/>
+      <stop offset="100%" style="stop-color:#84cc16"/>
+    </linearGradient>
+    <linearGradient id="skinTone" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8c4a0"/>
+      <stop offset="100%" style="stop-color:#d4a574"/>
+    </linearGradient>
+    <linearGradient id="blazerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <clipPath id="archClip">
+      <path d="M60 500 L60 200 Q60 80 200 80 Q340 80 340 200 L340 500 Z"/>
+    </clipPath>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="500" fill="url(#bgGrad)"/>
+  
+  <!-- Arch background -->
+  <path d="M60 500 L60 200 Q60 80 200 80 Q340 80 340 200 L340 500 Z" fill="url(#archGrad)"/>
+  
+  <!-- Content clipped to arch -->
+  <g clip-path="url(#archClip)">
+    <!-- Shoulders/Blazer -->
+    <ellipse cx="200" cy="580" rx="160" ry="150" fill="url(#blazerGrad)"/>
+    
+    <!-- Shirt collar -->
+    <path d="M165 410 L200 460 L235 410" fill="#f8fafc"/>
+    <path d="M175 415 L200 450 L225 415" fill="#e2e8f0"/>
+    
+    <!-- Neck -->
+    <rect x="175" y="365" width="50" height="55" fill="url(#skinTone)"/>
+    
+    <!-- Head -->
+    <ellipse cx="200" cy="280" rx="75" ry="90" fill="url(#skinTone)"/>
+    
+    <!-- Ears -->
+    <ellipse cx="125" cy="285" rx="10" ry="18" fill="url(#skinTone)"/>
+    <ellipse cx="275" cy="285" rx="10" ry="18" fill="url(#skinTone)"/>
+    
+    <!-- Hair - professional short style -->
+    <ellipse cx="200" cy="210" rx="72" ry="50" fill="#1a1a1a"/>
+    <path d="M130 245 Q130 175 200 160 Q270 175 270 245 Q265 210 200 200 Q135 210 130 245" fill="#1a1a1a"/>
+    <!-- Side hair -->
+    <path d="M128 260 Q122 220 145 190" fill="#1a1a1a"/>
+    <path d="M272 260 Q278 220 255 190" fill="#1a1a1a"/>
+    <!-- Hair parting detail -->
+    <path d="M165 185 Q175 175 200 175" stroke="#2a2a2a" stroke-width="2" fill="none"/>
+    
+    <!-- Eyebrows - natural -->
+    <path d="M150 255 Q167 248 182 255" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M218 255 Q233 248 250 255" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    
+    <!-- Eyes -->
+    <ellipse cx="166" cy="280" rx="14" ry="10" fill="white"/>
+    <ellipse cx="234" cy="280" rx="14" ry="10" fill="white"/>
+    <circle cx="168" cy="281" r="6" fill="#2c1810"/>
+    <circle cx="236" cy="281" r="6" fill="#2c1810"/>
+    <circle cx="170" cy="279" r="2" fill="white"/>
+    <circle cx="238" cy="279" r="2" fill="white"/>
+    
+    <!-- Glasses - professional thin frames -->
+    <rect x="144" y="268" width="42" height="28" rx="6" fill="none" stroke="#374151" stroke-width="2.5"/>
+    <rect x="214" y="268" width="42" height="28" rx="6" fill="none" stroke="#374151" stroke-width="2.5"/>
+    <line x1="186" y1="282" x2="214" y2="282" stroke="#374151" stroke-width="2.5"/>
+    <line x1="144" y1="282" x2="125" y2="278" stroke="#374151" stroke-width="2"/>
+    <line x1="256" y1="282" x2="275" y2="278" stroke="#374151" stroke-width="2"/>
+    
+    <!-- Nose -->
+    <path d="M200 285 Q205 305 200 320 Q195 322 192 318" stroke="#c9967a" stroke-width="2" fill="none" stroke-linecap="round"/>
+    
+    <!-- Subtle smile -->
+    <path d="M175 345 Q200 360 225 345" stroke="#b8866a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    
+    <!-- Blazer lapels -->
+    <path d="M130 430 L165 410 L165 500" fill="#1e293b"/>
+    <path d="M270 430 L235 410 L235 500" fill="#1e293b"/>
+    
+    <!-- Blazer buttons hint -->
+    <circle cx="200" cy="480" r="4" fill="#374151"/>
+  </g>
+  
+  <!-- Subtle shadow at bottom of arch -->
+  <path d="M60 480 L60 500 L340 500 L340 480" fill="url(#bgGrad)" opacity="0.3"/>
+</svg>
